@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/Documentacao/.$diagramaClasses.drawio.bkp
+/Documentacao/.$diagramaClasses.drawio.dtmp
+/.idea/encodings.xml

@@ -1,0 +1,26 @@
+No método main() implementar as seguintes listas de objetos:
+professor;
+aluno;
+instituição;
+areas de atuação;
+APS;
+
+Criar uma regra de login (validando um usuário admin – fixo no código, porque sem banco é complicado de fazer);
+Quando o usuário fizer login, correr as listas de professor e aluno  e validar se o login se encontra na lista;
+Se retornar positivo, validar se a senha está correta;
+
+Após o login, a depender do tipo do usuário logado:
+	Se for aluno, mostrar as APS disponíveis;
+	A método para se aplicar a uma APS;
+	
+	Se for professor, a possibilidade de criar e alterar cadastros;
+			
+	Se for adm, além dos cadastros, visualizar os alunos em cada APS;
+	
+Métodos a serem implementados:
+	Criar cadastro de professor;
+	Criar cadastro de Aluno;
+	Criar cadastro de APS;
+	Incluir aluno em uma APS;
+	Retornar os dados da APS e os alunos que nela estão;
+	
