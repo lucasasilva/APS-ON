@@ -1,6 +1,6 @@
 package main.java.cadastros;
 
-public class CadProfessores {
+public class CadProfessores  extends SuperCadastros{
 
 
 
