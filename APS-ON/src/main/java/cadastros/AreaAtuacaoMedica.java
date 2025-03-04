@@ -12,4 +12,8 @@ public class AreaAtuacaoMedica {
     public void setCadAreaAtuacaoMedica(Map<Integer, String> cadAreaAtuacaoMedica) {
         this.cadAreaAtuacaoMedica = cadAreaAtuacaoMedica;
     }
+
+    public boolean fValidaCadastroExistente(Integer chave){
+        return this.cadAreaAtuacaoMedica.containsKey(chave);
+    }
 }
