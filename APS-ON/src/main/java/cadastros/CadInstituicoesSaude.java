@@ -12,4 +12,8 @@ public class CadInstituicoesSaude {
     public void setCadInstituicoes(Map<Integer, String> cadInstituicoes) {
         this.cadInstituicoes = cadInstituicoes;
     }
+
+    public boolean fValidaCadInstituicao(Integer chave){
+        return this.cadInstituicoes.containsKey(chave);
+    }
 }
