@@ -1,11 +1,28 @@
 package br.com.apson;
 
+import cadastros.AreaAtuacaoMedica;
+import cadastros.CadInstituicoesSaude;
+import cadastros.CadProfessores;
 import util.Enums;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        //exemplo de como usar os enums pre criado para atribuir nas variáveis de classe
+         AreaAtuacaoMedica  areaAtuacaoMedica = new AreaAtuacaoMedica();
+         List<String> areasAtuacaoMedicaList = new ArrayList<>();
+         List<CadInstituicoesSaude> cadInstituicoesSaudeList = new ArrayList<>();
 
-    }
+         CadProfessores professores = new CadProfessores();
+         List<CadProfessores> professoresLista = new ArrayList<>();
+
+        areaAtuacaoMedica.setId(1);
+        areaAtuacaoMedica.setNome("Pediatria");
+
+        areasAtuacaoMedicaList.set(areaAtuacaoMedica.get());
+
+        System.out.println(areasAtuacaoMedicaList);
+
 }
 
