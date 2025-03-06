@@ -1,8 +1,9 @@
-<<<<<<<< HEAD:APS-ON/src/main/java/atividades/CadAtividades.java
-package main.java.atividades;
-========
-package main.atividades;
->>>>>>>> origin/main:APS-ON/src/main/atividades/CadAtividades.java
+package atividades;
 
+import util.Enums;
 public class CadAtividades {
+    private int id;
+    private Enums.tipoAtividade tipoAtividade;
+    private int areaAtuacaoMedica; //depende da cadAreas
+
 }

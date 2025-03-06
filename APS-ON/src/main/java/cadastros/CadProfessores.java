@@ -1,37 +1,24 @@
-package main.java.cadastros;
+package cadastros;
 
-public class CadProfessores  extends SuperCadastros{
-    private int id;
-    private String nome;
-    private Integer tipoCadastro;
+import util.Enums;
+public class CadProfessores  extends SuperCadastros {
 
-    public CadProfessores(int id, String nome, Integer tipoCadastro) {
-        this.id = id;
-        this.nome = nome;
-        this.tipoCadastro = tipoCadastro;
+    private Enums.disponibilidadeDias disponibilidadeDias;
+    private int institucaoAtuacao;
+
+    public Enums.disponibilidadeDias getDisponibilidadeDias() {
+        return disponibilidadeDias;
     }
 
-    public int getId() {
-        return id;
+    public void setDisponibilidadeDias(Enums.disponibilidadeDias disponibilidadeDias) {
+        this.disponibilidadeDias = disponibilidadeDias;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getInstitucaoAtuacao() {
+        return institucaoAtuacao;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Integer getTipoCadastro() {
-        return tipoCadastro;
-    }
-
-    public void setTipoCadastro(Integer tipoCadastro) {
-        this.tipoCadastro = tipoCadastro;
+    public void setInstitucaoAtuacao(int institucaoAtuacao) {
+        this.institucaoAtuacao = institucaoAtuacao;
     }
 }
