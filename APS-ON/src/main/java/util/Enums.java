@@ -11,6 +11,6 @@ public class Enums {
         primeiro, segundo, terceiro, quarto, quinto, sexto, setimo, oitavo
     }
     public enum disponibilidadeDias{
-        segunda, terca, quarta, quinta, sexta
+        segunda, terca, quarta, quinta
     }
 }

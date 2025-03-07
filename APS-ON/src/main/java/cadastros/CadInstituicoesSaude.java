@@ -16,4 +16,8 @@ public class CadInstituicoesSaude {
     public boolean fValidaCadInstituicao(Integer chave){
         return this.cadInstituicoes.containsKey(chave);
     }
+
+
+
+
 }
