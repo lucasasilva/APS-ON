@@ -3,26 +3,50 @@ package br.com.apson;
 import cadastros.AreaAtuacaoMedica;
 import cadastros.CadInstituicoesSaude;
 import cadastros.CadProfessores;
-import util.Enums;
+import util.Menu;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-         AreaAtuacaoMedica  areaAtuacaoMedica = new AreaAtuacaoMedica();
-         List<String> areasAtuacaoMedicaList = new ArrayList<>();
-         List<CadInstituicoesSaude> cadInstituicoesSaudeList = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        int menu;
+        AreaAtuacaoMedica areaAtuacaoMedica = new AreaAtuacaoMedica();
+        Map<Integer, String> areaAtuacaoMedicaList = new HashMap<>();
+        CadInstituicoesSaude cadInstituicoesSaude = new CadInstituicoesSaude();
+        List<CadInstituicoesSaude> cadInstituicoesSaudeList = new ArrayList<>();
 
-         CadProfessores professores = new CadProfessores();
-         List<CadProfessores> professoresLista = new ArrayList<>();
+        CadProfessores professores = new CadProfessores();
+        List<CadProfessores> professoresLista = new ArrayList<>();
 
-        areaAtuacaoMedica.setId(1);
-        areaAtuacaoMedica.setNome("Pediatria");
+        do {
+            Menu.menu();
+            menu = sc.nextInt();
+            switch (menu){
+                case 1:
+                    System.out.println("Não implementado");
+                    break;
+                case 2:
+                    System.out.println("não implementado");
+                    break;
+                case 3:
+                    areaAtuacaoMedica.criaCadastro(sc, areaAtuacaoMedicaList);
+                    //areaAtuacaoMedicaList.forEach();
+                    break;
+                case 4:
+                    System.out.println("não implementado ainda");
+                    break;
+                case 5:
+                    System.out.println("Obrigado por usar o APS-ON");
+                    break;
+                default:
+                    System.out.println("opção inválida, tente novamente!");
+                    menu = sc.nextInt();
+            }
 
-        areasAtuacaoMedicaList.set(areaAtuacaoMedica.get());
+        }while(menu != 5);
 
-        System.out.println(areasAtuacaoMedicaList);
 
+    }
 }
 
