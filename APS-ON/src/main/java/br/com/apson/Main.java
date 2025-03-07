@@ -6,6 +6,7 @@ import cadastros.CadProfessores;
 import util.Menu;
 
 import java.util.*;
+import java.util.function.BiConsumer;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,7 +32,7 @@ public class Main {
                     break;
                 case 3:
                     areaAtuacaoMedica.criaCadastro(sc, areaAtuacaoMedicaList);
-                    //areaAtuacaoMedicaList.forEach();
+                    areaAtuacaoMedicaList.forEach((num, valor) -> System.out.println(num+" : "+valor));
                     break;
                 case 4:
                     System.out.println("não implementado ainda");
