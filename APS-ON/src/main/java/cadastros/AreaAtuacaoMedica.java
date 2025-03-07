@@ -21,4 +21,10 @@ public class AreaAtuacaoMedica {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+
+    @Override
+    public String toString() {
+        return this.getId() + " " + this.getNome();
+    }
 }
