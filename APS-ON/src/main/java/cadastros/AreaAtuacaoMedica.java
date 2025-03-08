@@ -37,7 +37,7 @@ public class AreaAtuacaoMedica {
             System.out.println("Deseja continuar cadastrando areas?");
             vParada = sc.next().charAt(0);
         }while (Character.toUpperCase(vParada)=='S');
-        //asdfasdf
+
     }
     //TOME-LHE POLIMORFISMO LEK, DRUIDA ATÉ NO CÓDIGO
     @Override
