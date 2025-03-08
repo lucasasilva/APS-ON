@@ -4,6 +4,7 @@ import cadastros.AreaAtuacaoMedica;
 import cadastros.CadInstituicoesSaude;
 import cadastros.CadProfessores;
 import util.Menu;
+import util.Enums;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -25,7 +26,7 @@ public class Main {
             menu = sc.nextInt();
             switch (menu) {
                 case 1:
-                    System.out.println("Cadastro de professores");
+                    professores.cadastrarProfessor();
                     break;
                 case 2:
                     System.out.println("Cadastro de alunos");
@@ -38,7 +39,8 @@ public class Main {
                     System.out.println("instituições de saude");
                     break;
                 case 5:
-                    System.out.println("Cadastro de atividades");
+
+                     professores.listarProfessores();
                     break;
                 case 6:
                     System.out.println("Ver cadastros");
@@ -54,5 +56,8 @@ public class Main {
 
 
     }
+
+
 }
+
 
