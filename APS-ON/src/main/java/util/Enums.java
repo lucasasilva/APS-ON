@@ -2,7 +2,7 @@ package util;
 
 public class Enums {
     public enum tipoCadastro {
-        Aluno, Professor
+        Aluno, Professor, Instituicao
     }
     public enum tipoAtividade{
         APS, EPS

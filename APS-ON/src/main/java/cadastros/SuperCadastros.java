@@ -9,6 +9,7 @@ public class SuperCadastros {
     private String emailContato;
     private String login;
     private String senha;
+    private String Nome;
 
     public long getId() {
         return id;
@@ -56,5 +57,15 @@ public class SuperCadastros {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public void add(String alunos) {
+
+    }
+
+    public String getNome(){return Nome;}
+
+    public void setNome(String nome) {
+        Nome = nome;
     }
 }
