@@ -23,29 +23,34 @@ public class Main {
         do {
             Menu.menu();
             menu = sc.nextInt();
-            switch (menu){
+            switch (menu) {
                 case 1:
-                    System.out.println("Não implementado");
+                    System.out.println("Cadastro de professores");
                     break;
                 case 2:
-                    System.out.println("não implementado");
+                    System.out.println("Cadastro de alunos");
                     break;
-                case 3:
+                case 3://cadastro de area medica
                     areaAtuacaoMedica.criaCadastro(sc, areaAtuacaoMedicaList);
-                    areaAtuacaoMedicaList.forEach((num, valor) -> System.out.println(num+" : "+valor));
+                    areaAtuacaoMedicaList.forEach((num, valor) -> System.out.println(num + " : " + valor));
                     break;
                 case 4:
-                    System.out.println("não implementado ainda");
+                    System.out.println("instituições de saude");
                     break;
                 case 5:
+                    System.out.println("Cadastro de atividades");
+                    break;
+                case 6:
+                    System.out.println("Ver cadastros");
+                    break;
+                case 0:
                     System.out.println("Obrigado por usar o APS-ON");
                     break;
                 default:
                     System.out.println("opção inválida, tente novamente!");
                     menu = sc.nextInt();
             }
-        //mainafasd
-        }while(menu != 5);
+        } while (menu != 0);
 
 
     }
