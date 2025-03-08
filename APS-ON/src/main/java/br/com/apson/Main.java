@@ -1,10 +1,57 @@
 package br.com.apson;
 
-import util.Enums;
+import cadastros.AreaAtuacaoMedica;
+import cadastros.CadInstituicoesSaude;
+import cadastros.CadProfessores;
+import util.Menu;
+
+import java.util.*;
+import java.util.function.BiConsumer;
 
 public class Main {
     public static void main(String[] args) {
-        //exemplo de como usar os enums pre criado para atribuir nas variáveis de classe
+        Scanner sc = new Scanner(System.in);
+        int menu;
+        AreaAtuacaoMedica areaAtuacaoMedica = new AreaAtuacaoMedica();
+        Map<Integer, String> areaAtuacaoMedicaList = new HashMap<>();
+        CadInstituicoesSaude cadInstituicoesSaude = new CadInstituicoesSaude();
+        List<CadInstituicoesSaude> cadInstituicoesSaudeList = new ArrayList<>();
+
+        CadProfessores professores = new CadProfessores();
+        List<CadProfessores> professoresLista = new ArrayList<>();
+
+        do {
+            Menu.menu();
+            menu = sc.nextInt();
+            switch (menu) {
+                case 1:
+                    System.out.println("Cadastro de professores");
+                    break;
+                case 2:
+                    System.out.println("Cadastro de alunos");
+                    break;
+                case 3://cadastro de area medica
+                    areaAtuacaoMedica.criaCadastro(sc, areaAtuacaoMedicaList);
+                    areaAtuacaoMedicaList.forEach((num, valor) -> System.out.println(num + " : " + valor));
+                    break;
+                case 4:
+                    System.out.println("instituições de saude");
+                    break;
+                case 5:
+                    System.out.println("Cadastro de atividades");
+                    break;
+                case 6:
+                    System.out.println("Ver cadastros");
+                    break;
+                case 0:
+                    System.out.println("Obrigado por usar o APS-ON");
+                    break;
+                default:
+                    System.out.println("opção inválida, tente novamente!");
+                    menu = sc.nextInt();
+            }
+        } while (menu != 0);
+
 
     }
 }
