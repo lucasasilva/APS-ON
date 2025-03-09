@@ -14,10 +14,6 @@ public class CadInstituicoesSaude extends SuperCadastros {
         return instituicoesSaudes;
     }
 
-    public void setInstituicoesSaudes(List<CadInstituicoesSaude> instituicoesSaudes) {
-        this.instituicoesSaudes = instituicoesSaudes;
-    }
-
     public void executarMenu() {
         int opcao;
         do {
@@ -52,9 +48,8 @@ public class CadInstituicoesSaude extends SuperCadastros {
         instituicoesSaude.setId(scanner.nextLong());
         scanner.nextLine();
 
-        System.out.println("Informe o Nome da Instituição de Saúde");
+        System.out.println("Informe o Nome da Instituição de Saúde: ");
         instituicoesSaude.setNome(scanner.nextLine());
-        scanner.nextLine();
 
         System.out.print("Informe o telefone de contato do responsável da instituição: ");
         instituicoesSaude.setTelefoneContato(scanner.nextLine());
@@ -73,8 +68,8 @@ public class CadInstituicoesSaude extends SuperCadastros {
         scanner.nextLine();
 
         if (escolhaTipo >= 0 && escolhaTipo < tipos.length) {
-            if (tipos[escolhaTipo] == Enums.tipoCadastro.Instituicao) {
-                System.out.println("Permitido Somente Cadastro de Instituicao");
+            if (tipos[escolhaTipo] != Enums.tipoCadastro.Instituicao) {
+                System.out.println("Apenas Instituições podem ser cadastradas!");
                 return;
             }
             instituicoesSaude.setTipoCadastro(tipos[escolhaTipo]);
@@ -93,7 +88,7 @@ public class CadInstituicoesSaude extends SuperCadastros {
         } else {
             System.out.println("\n--- Lista de Instituição ---");
             for (CadInstituicoesSaude p : instituicoesSaudes) {
-                System.out.println(" ID: " + p.getId() + "\n Nome:" + p.getNome() + "\n Email: " + p.getEmailContato() + "\nTelefone de contato" +p.getTelefoneContato());
+                System.out.println(" ID: " + p.getId() + "\n Nome:" + p.getNome() + "\n Email: " + p.getEmailContato() + "\n Telefone de contato: " +p.getTelefoneContato());
             }
         }
     }

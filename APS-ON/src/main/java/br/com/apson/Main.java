@@ -1,6 +1,7 @@
 package br.com.apson;
 
 import cadastros.AreaAtuacaoMedica;
+import cadastros.CadAlunos;
 import cadastros.CadInstituicoesSaude;
 import cadastros.CadProfessores;
 import util.Menu;
@@ -15,33 +16,39 @@ public class Main {
         int menu;
         AreaAtuacaoMedica areaAtuacaoMedica = new AreaAtuacaoMedica();
         Map<Integer, String> areaAtuacaoMedicaList = new HashMap<>();
-        CadInstituicoesSaude cadInstituicoesSaude = new CadInstituicoesSaude();
-        List<CadInstituicoesSaude> cadInstituicoesSaudeList = new ArrayList<>();
 
         CadProfessores professores = new CadProfessores();
         List<CadProfessores> professoresLista = new ArrayList<>();
+
+        CadAlunos alunos = new CadAlunos();
+        List<CadAlunos> alunosLista = new ArrayList<>();
+
+        CadInstituicoesSaude instituicoes = new CadInstituicoesSaude();
+        List<CadInstituicoesSaude> instituicoesSaudesLista = new ArrayList<>();
 
         do {
             Menu.menu();
             menu = sc.nextInt();
             switch (menu) {
                 case 1:
+                    System.out.println("Cadastro de Professores");
                     professores.cadastrarProfessor();
                     break;
                 case 2:
                     System.out.println("Cadastro de alunos");
+                    alunos.cadastrarAluno();
                     break;
-                case 3://cadastro de area medica
+                case 3:
+                    System.out.println("instituições de saude");
+                    instituicoes.cadastrarInstituicoes();
+                    break;
+                case 4:
                     areaAtuacaoMedica.criaCadastro(sc, areaAtuacaoMedicaList);
                     areaAtuacaoMedicaList.forEach((num, valor) -> System.out.println(num + " : " + valor));
                     break;
-                case 4:
-                    System.out.println("instituições de saude");
-                    break;
                 case 5:
-
-                     professores.listarProfessores();
-                    break;
+                     System.out.println("Cadastrar APS");
+                     break;
                 case 6:
                     System.out.println("Ver cadastros");
                     break;

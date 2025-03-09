@@ -53,6 +53,9 @@ public class CadAlunos extends SuperCadastros {
         aluno.setId(scanner.nextLong());
         scanner.nextLine();
 
+        System.out.print("Informe seu nome: ");
+        aluno.setNome(scanner.nextLine());
+
         System.out.print("Informe o telefone de contato: ");
         aluno.setTelefoneContato(scanner.nextLine());
 
@@ -95,7 +98,7 @@ public class CadAlunos extends SuperCadastros {
         } else {
             System.out.println("\n--- Lista de alunos ---");
             for (CadAlunos p : alunos) {
-                System.out.println(" ID: " + p.getId() + "\n Nome:" + p.getLogin() + "\n Email: " + p.getEmailContato());
+                System.out.println(" ID: " + p.getId() + "\n Nome: " +p.getNome() +  "\n Login:" + p.getLogin() + "\n Email: " + p.getEmailContato());
             }
         }
     }

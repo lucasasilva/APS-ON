@@ -10,6 +10,7 @@ public class SuperCadastros {
     private String login;
     private String senha;
     private String Nome;
+    private String alunos;
 
     public long getId() {
         return id;
@@ -59,13 +60,9 @@ public class SuperCadastros {
         this.senha = senha;
     }
 
-    public void add(String alunos) {
+    public void add(String alunos) {this.alunos = alunos;}
 
-    }
+    public String getNome(){ return Nome; }
 
-    public String getNome(){return Nome;}
-
-    public void setNome(String nome) {
-        Nome = nome;
-    }
+    public void setNome(String nome) { this.Nome = nome; }
 }

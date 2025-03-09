@@ -5,8 +5,8 @@ public class Menu {
         System.out.println("Escolha uma opção");
         System.out.println("1 - Cadastro de professores         2 - Cadastro de alunos");
         System.out.println("3 - Cadastro de Instituições        4 - Cadastro de Áreas médicas");
-        System.out.println("4 - Cadastrar APS                   5 - Ver cadastros");
-        System.out.println("6 - Sair");
+        System.out.println("5 - Cadastrar APS                   6 - Ver cadastros");
+        System.out.println("0 - Sair");
 
     }
     public static void menuRelatorios(){
