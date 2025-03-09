@@ -1,8 +1,10 @@
 # APS-ON
 
-O projeto consiste em uma interface a ser utilizada para cadastro de professores e alunos e profissionais da saúde, como parte integrante do Projeto Integrador;
+1. Introdução
+Objetivo do Sistema: O projeto consiste em uma interface a ser utilizada para cadastro de professores e alunos e profissionais da saúde, como parte integrante do Projeto Integrador;
 
-Dentro do escopo em primeiro momento foi feita a criação dos seguintes tópicos
+Escopo:
+Funcionalidades presentes na versão atual
 
 1 - Cadastro de Alunos;
 2 - Cadastro de Professores;
@@ -11,12 +13,49 @@ Dentro do escopo em primeiro momento foi feita a criação dos seguintes tópico
 5 - Cadastro de Estágio Supervisionado;
 6 - Relatórios de cadastros;
 
-Utilizadas as metodologias solicitadas pelos Professores do 1º projeto mensal como requisitos para entrega
+Público-Alvo: Professores, Alunos das áreas da saúde do grupo Descomplica Uniamérica
 
-1 - Interação do Usuário via Console;
-2 - Definição de Classes e Objetos;
-3 - Encapsulamento e Modificadores de Acesso;
-4 - Construtores e Sobrecarga;
-5 - Herança e Polimorfismo;
-6 - Composição e Interfaces;
-7 - Tópicos Avançados e Boas Práticas;
+2. Requisitos do Sistema
+   
+Requisitos Funcionais:
+
+Cadastro de Alunos.
+Cadastro de Professores.
+Cadastro de Instituições de Saúde.
+Cadastro de Atividades Práticas Supervisionadas.
+Cadastro de Estágio Supervisionado.
+Relatórios de cadastros.
+
+Requisitos Não Funcionais:
+
+Implementação inicial via console.
+Utilização de Java e conceitos de POO.
+Uso de boas práticas de codificação.
+
+4. Modelagem do Sistema
+   
+Diagrama de Classes: Representação UML com classes, atributos, métodos e relacionamentos.
+
+Relacionamentos: Indicação de herança, composição e associações entre classes.
+
+Estrutura Inicial: Descrição de como as classes serão organizadas.
+
+6. Implementação
+
+Passos Iniciais:
+Criação das classes principais.
+Definição de construtores e métodos.
+Uso de encapsulamento e modificadores de acesso.
+Implementação de herança e polimorfismo.
+Uso de interfaces e composição.
+Aplicação de boas práticas de desenvolvimento.
+
+Evolução do Projeto:
+
+8. Fluxo de Execução
+
+Descrição do Fluxo: Como o usuário interage com o sistema via console.
+Exemplos de Uso: Passo a passo com exemplos de entrada e saída do console.
+
+Melhorias: Implementação de validações, logs e segurança.
+
