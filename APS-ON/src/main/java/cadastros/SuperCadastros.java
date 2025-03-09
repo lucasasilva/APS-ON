@@ -11,6 +11,7 @@ public class SuperCadastros {
     private String senha;
     private String Nome;
     private String alunos;
+    private String Periodo;
 
     public long getId() {
         return id;
@@ -65,4 +66,8 @@ public class SuperCadastros {
     public String getNome(){ return Nome; }
 
     public void setNome(String nome) { this.Nome = nome; }
+
+    public String getPeriodo(){ return Periodo; }
+
+    public void setPeriodo(String Periodo){ this.Periodo = Periodo; }
 }

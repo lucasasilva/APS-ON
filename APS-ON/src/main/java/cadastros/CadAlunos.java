@@ -56,6 +56,15 @@ public class CadAlunos extends SuperCadastros {
         System.out.print("Informe seu nome: ");
         aluno.setNome(scanner.nextLine());
 
+        System.out.println("Qual seu período");
+        Enums.periodos[] periodos = Enums.periodos.values();
+        for (int i = 0; i < periodos.length; i++) {
+            System.out.println(i + " - " + periodos[i]);
+        }
+        System.out.print("Escolha o número correspondente ao período: ");
+        aluno.setPeriodo(scanner.nextLine());
+
+
         System.out.print("Informe o telefone de contato: ");
         aluno.setTelefoneContato(scanner.nextLine());
 
@@ -98,7 +107,7 @@ public class CadAlunos extends SuperCadastros {
         } else {
             System.out.println("\n--- Lista de alunos ---");
             for (CadAlunos p : alunos) {
-                System.out.println(" ID: " + p.getId() + "\n Nome: " +p.getNome() +  "\n Login:" + p.getLogin() + "\n Email: " + p.getEmailContato());
+                System.out.println(" ID: " + p.getId() + "\n Nome: " +p.getNome() +  "\n Periodo:" + p.getPeriodo() + "\n Login:" + p.getLogin() + "\n Email: " + p.getEmailContato());
             }
         }
     }
