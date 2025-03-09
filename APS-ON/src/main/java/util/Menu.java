@@ -11,7 +11,7 @@ public class Menu {
     }
     public static void menuRelatorios(){
         System.out.println("1 - Ver cadastro de professores     2 - Ver cadastro de alunos");
-        System.out.println("3 - Ver cadastro de instituições" +"4 - Ver Cadastro de Áreas");
+        System.out.println("3 - Ver cadastro de instituições    4 - Ver Cadastro de Áreas");
         System.out.println("5 - voltar");
     }
 }

@@ -14,6 +14,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int menu;
+        int opcaoRelatorio;
+        int menuRelatorios = 0;
         AreaAtuacaoMedica areaAtuacaoMedica = new AreaAtuacaoMedica();
         Map<Integer, String> areaAtuacaoMedicaList = new HashMap<>();
 
@@ -26,8 +28,11 @@ public class Main {
         CadInstituicoesSaude instituicoes = new CadInstituicoesSaude();
         List<CadInstituicoesSaude> instituicoesSaudesLista = new ArrayList<>();
 
+
+
         do {
             Menu.menu();
+            System.out.println("Selecione a Opção Desejada: ");
             menu = sc.nextInt();
             switch (menu) {
                 case 1:
@@ -51,20 +56,24 @@ public class Main {
                      break;
                 case 6:
                     System.out.println("Ver cadastros");
-                    break;
+                    do {
+                        Menu.menuRelatorios(); // Exibe o menu de relatórios
+                        System.out.print("Escolha uma opção: ");
+                        opcaoRelatorio = sc.nextInt();
+                        sc.nextLine();}
+                    while (opcaoRelatorio != 5);
+
                 case 0:
                     System.out.println("Obrigado por usar o APS-ON");
                     break;
                 default:
                     System.out.println("opção inválida, tente novamente!");
                     menu = sc.nextInt();
-            }
-        } while (menu != 0);
+                    }
+            } while (menu != 0);
 
 
     }
-
-
 }
 
 
