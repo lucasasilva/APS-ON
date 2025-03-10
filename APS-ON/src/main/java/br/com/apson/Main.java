@@ -55,13 +55,38 @@ public class Main {
                      System.out.println("Cadastrar APS");
                      break;
                 case 6:
-                    System.out.println("Ver cadastros");
                     do {
-                        Menu.menuRelatorios(); // Exibe o menu de relatórios
+                        Menu.menuRelatorios();
                         System.out.print("Escolha uma opção: ");
                         opcaoRelatorio = sc.nextInt();
-                        sc.nextLine();}
-                    while (opcaoRelatorio != 5);
+                        sc.nextLine();
+
+                        switch (opcaoRelatorio) {
+                            case 1:
+                                System.out.println("Lista de Professores Cadastrados:");
+                                professores.listarProfessores();
+                                break;
+                            case 2:
+                                System.out.println("Lista de Alunos Cadastrados:");
+                                alunos.listarAluno();
+                                break;
+                            case 3:
+                                System.out.println("Lista de Instituições de Saúde Cadastradas:");
+                                instituicoes.listarInstituicoes();
+                                break;
+                            case 4:
+                                System.out.println("Lista de Áreas de Atuação Médica:");
+                                areaAtuacaoMedicaList.forEach((num, valor) -> System.out.println(num + " : " + valor));
+                                break;
+                            case 5:
+                                System.out.println("Voltando ao menu principal...");
+                                break;
+                            default:
+                                System.out.println("Opção inválida, tente novamente.");
+                        }
+                    } while (opcaoRelatorio != 5);
+                    break;
+
 
                 case 0:
                     System.out.println("Obrigado por usar o APS-ON");
