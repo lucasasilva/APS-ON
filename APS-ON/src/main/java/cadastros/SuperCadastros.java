@@ -70,4 +70,11 @@ public class SuperCadastros {
     public String getPeriodo(){ return Periodo; }
 
     public void setPeriodo(String Periodo){ this.Periodo = Periodo; }
+
+    //construtores
+    public SuperCadastros(){};
+    public SuperCadastros(String login, String senha){
+        this.login= login;
+        this.senha= senha;
+    }
 }
