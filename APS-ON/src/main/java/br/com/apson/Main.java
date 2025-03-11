@@ -1,9 +1,6 @@
 package br.com.apson;
 
-import cadastros.AreaAtuacaoMedica;
-import cadastros.CadAlunos;
-import cadastros.CadInstituicoesSaude;
-import cadastros.CadProfessores;
+import cadastros.*;
 import util.Menu;
 import util.Enums;
 
@@ -13,6 +10,10 @@ import java.util.function.BiConsumer;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        SuperCadastros admin = new SuperCadastros("admin","admin");
+
+        String login, senha;
+
         int menu;
         int opcaoRelatorio;
         int menuRelatorios = 0;
@@ -28,7 +29,12 @@ public class Main {
         CadInstituicoesSaude instituicoes = new CadInstituicoesSaude();
         List<CadInstituicoesSaude> instituicoesSaudesLista = new ArrayList<>();
 
-
+        do {
+            System.out.println("Digite seu login");
+            login = sc.nextLine();
+            System.out.println("Digite sua senha");
+            senha = sc.nextLine();
+        }while (!(login.equals(admin.getLogin()))||!(senha.equals(admin.getSenha())));
 
         do {
             Menu.menu();
