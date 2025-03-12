@@ -1,14 +1,15 @@
 package util;
 
 public class Enums {
+
     public enum tipoCadastro {
-        Aluno, Professor
+        Aluno, Professor, Instituicao
     }
     public enum tipoAtividade{
         APS, EPS
     }
     public enum periodos {
-        primeiro, segundo, terceiro, quarto, quinto, sexto, setimo, oitavo
+        Primeiro, Segundo, Terceiro, Quarto, Quinto, Sexto, Setimo, oitavo
     }
     public enum disponibilidadeDias{
         segunda, terca, quarta, quinta

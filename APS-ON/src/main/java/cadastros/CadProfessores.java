@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CadProfessores extends cadastros.SuperCadastros {
+public class CadProfessores extends SuperCadastros {
     private List<CadProfessores> professores = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     private Enums.disponibilidadeDias disponibilidadeDias;
@@ -66,6 +66,9 @@ public class CadProfessores extends cadastros.SuperCadastros {
         professor.setId(scanner.nextLong());
         scanner.nextLine();
 
+        System.out.println("Informe o Nome do Professor: ");
+        professor.setNome(scanner.nextLine());
+
         System.out.print("Informe o telefone de contato: ");
         professor.setTelefoneContato(scanner.nextLine());
 
@@ -88,6 +91,10 @@ public class CadProfessores extends cadastros.SuperCadastros {
         scanner.nextLine();
 
         if (escolhaTipo >= 0 && escolhaTipo < tipos.length) {
+            if (tipos[escolhaTipo] != Enums.tipoCadastro.Professor){
+                System.out.println("Apenas Professores podem ser cadastrados!");
+                return;
+            }
             professor.setTipoCadastro(tipos[escolhaTipo]);
         } else {
             System.out.println("Opção inválida! Definindo como Professor por padrão.");
@@ -122,12 +129,17 @@ public class CadProfessores extends cadastros.SuperCadastros {
         } else {
             System.out.println("\n--- Lista de Professores ---");
             for (CadProfessores p : professores) {
-                System.out.println("ID: " + p.getId() + ", Nome: " + p.getLogin() + ", Email: " + p.getEmailContato() + ", Instituição: " + p.getInstituicaoAtuacao() + ", Disponibilidade: " + p.getDisponibilidadeDias());
+                System.out.println("\nID: " + p.getId() + "\nNome: " + p.getNome() + "\nLogin: " + p.getLogin() + "\nEmail: " + p.getEmailContato() + "\nInstituição: " + p.getInstituicaoAtuacao() + "\nDisponibilidade: " + p.getDisponibilidadeDias());
             }
         }
     }
 
     private void setInstituicaoAtuacao(CadProfessores professor) {
+        System.out.println("\n--- Instituições Disponíveis ---");
+        CadInstituicoesSaude[] instituicoesSaudes = new CadInstituicoesSaude[0];
+        for (CadInstituicoesSaude instituicao : instituicoesSaudes ) {
+            System.out.println("ID: " + instituicao.getId() + " - Nome: " + instituicao.getNome());
+        }
         System.out.print("Informe o ID da instituição de atuação: ");
         professor.setInstituicaoAtuacao(scanner.nextInt());
         scanner.nextLine();
