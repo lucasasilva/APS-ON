@@ -1,17 +1,24 @@
 package entities;
 
+import jakarta.persistence.*;
 import util.Enums;
-
+@Entity
+@Table (name = "cad_pessoas")
 public class SuperCadastros {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
-    private Enums.tipoCadastro tipoCadastro;
+    @Column (name = "telefone")
     private String telefoneContato;
+    @Column (name = "email")
     private String emailContato;
+    @Column (name = "login")
     private String login;
+    @Column (name = "senha")
     private String senha;
+    @Column (name = "nome")
     private String Nome;
-    private String alunos;
-    private String Periodo;
+
 
     public long getId() {
         return id;
@@ -19,14 +26,6 @@ public class SuperCadastros {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Enums.tipoCadastro getTipoCadastro() {
-        return tipoCadastro;
-    }
-
-    public void setTipoCadastro(Enums.tipoCadastro tipoCadastro) {
-        this.tipoCadastro = tipoCadastro;
     }
 
     public String getTelefoneContato() {
@@ -61,15 +60,11 @@ public class SuperCadastros {
         this.senha = senha;
     }
 
-    public void add(String alunos) {this.alunos = alunos;}
-
     public String getNome(){ return Nome; }
 
     public void setNome(String nome) { this.Nome = nome; }
 
-    public String getPeriodo(){ return Periodo; }
 
-    public void setPeriodo(String Periodo){ this.Periodo = Periodo; }
 
     //construtores
     public SuperCadastros(){};
