@@ -1,4 +1,4 @@
-package atividades;
+package entities;
 
 public class CadAtividadesAlunos {
 }

@@ -1,4 +1,4 @@
-package cadastros;
+package entities;
 
 import util.Enums;
 
@@ -9,6 +9,9 @@ public class SuperCadastros {
     private String emailContato;
     private String login;
     private String senha;
+    private String Nome;
+    private String alunos;
+    private String Periodo;
 
     public long getId() {
         return id;
@@ -56,5 +59,30 @@ public class SuperCadastros {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public void add(String alunos) {this.alunos = alunos;}
+
+    public String getNome(){ return Nome; }
+
+    public void setNome(String nome) { this.Nome = nome; }
+
+    public String getPeriodo(){ return Periodo; }
+
+    public void setPeriodo(String Periodo){ this.Periodo = Periodo; }
+
+    //construtores
+    public SuperCadastros(){};
+    public SuperCadastros(String login, String senha){
+        this.login= login;
+        this.senha= senha;
+    }
+
+    public SuperCadastros(String Nome,int  id,String  senha,String login,String email){
+        this.Nome = Nome;
+        this.id = id;
+        this.senha = senha;
+        this.login = login;
+        this.emailContato = email;
     }
 }

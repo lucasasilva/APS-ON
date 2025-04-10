@@ -1,12 +1,11 @@
 package br.com.apson;
 
-import cadastros.AreaAtuacaoMedica;
-import cadastros.CadInstituicoesSaude;
-import cadastros.CadProfessores;
+import entities.AreaAtuacaoMedica;
+import entities.CadInstituicoesSaude;
+import entities.CadProfessores;
 import util.Menu;
 
 import java.util.*;
-import java.util.function.BiConsumer;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package cadastros;
+package entities;
 
 import util.Enums;
 
