@@ -17,7 +17,7 @@ public class SuperCadastros {
     @Column (name = "senha")
     private String senha;
     @Column (name = "nome")
-    private String Nome;
+    private String nome;
 
 
     public long getId() {
@@ -60,9 +60,9 @@ public class SuperCadastros {
         this.senha = senha;
     }
 
-    public String getNome(){ return Nome; }
+    public String getNome(){ return nome; }
 
-    public void setNome(String nome) { this.Nome = nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
 
 
@@ -73,11 +73,46 @@ public class SuperCadastros {
         this.senha= senha;
     }
 
-    public SuperCadastros(String Nome,int  id,String  senha,String login,String email){
-        this.Nome = Nome;
+    public SuperCadastros(String nome,int  id,String  senha,String login,String email){
+        this.nome = nome;
         this.id = id;
         this.senha = senha;
         this.login = login;
         this.emailContato = email;
+    }
+
+    public SuperCadastros(long id, String telefoneContato, String emailContato, String login, String senha, String nome) {
+        this.id = id;
+        this.telefoneContato = telefoneContato;
+        this.emailContato = emailContato;
+        this.login = login;
+        this.senha = senha;
+        this.nome = nome;
+    }
+
+    public SuperCadastros(long id, String nome, String emailContato) {
+        this.id = id;
+        this.nome = nome;
+        this.emailContato = emailContato;
+    }
+
+    @Override
+    public String toString() {
+        return  "SuperCadastros{" +
+                "id=" + id +
+                ", telefoneContato='" + telefoneContato + '\'' +
+                ", emailContato='" + emailContato + '\'' +
+                ", login='" + login + '\'' +
+                ", senha='" + senha + '\'' +
+                ", Nome='" + nome + '\'' +
+                '}';
+    }
+
+    public String toString2() {
+        return  "SuperCadastros{" +
+                "id=" + id +
+                ", Nome='" + nome + '\'' +
+                ", emailContato='" + emailContato + '\'' +
+                '}';
     }
 }
