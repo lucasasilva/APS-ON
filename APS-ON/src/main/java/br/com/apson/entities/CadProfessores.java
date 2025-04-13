@@ -1,27 +1,17 @@
-package entities;
+package br.com.apson.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import util.Enums;
+import br.com.apson.util.Enums;
 
 @Entity
 @Table (name = "cad_professores")
 public class CadProfessores  extends SuperCadastros {
-
-    @Id
-    private int id;
-    private Enums.disponibilidadeDias disponibilidadeDias;
+    @Column (name = "instituicao_trabalho")
     private int institucaoAtuacao;
 
-
-    public Enums.disponibilidadeDias getDisponibilidadeDias() {
-        return disponibilidadeDias;
-    }
-
-    public void setDisponibilidadeDias(Enums.disponibilidadeDias disponibilidadeDias) {
-        this.disponibilidadeDias = disponibilidadeDias;
-    }
 
     public int getInstitucaoAtuacao() {
         return institucaoAtuacao;

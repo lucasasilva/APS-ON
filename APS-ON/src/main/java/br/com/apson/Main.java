@@ -1,15 +1,9 @@
 package br.com.apson;
 
-import entities.AreaAtuacaoMedica;
-import entities.CadInstituicoesSaude;
-import entities.CadProfessores;
-import entities.SuperCadastros;
-import util.Menu;
+import br.com.apson.entities.SuperCadastros;
 
-import services.*;
+import br.com.apson.util.generics;
 
-import java.io.ObjectStreamException;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
@@ -18,7 +12,7 @@ public class Main {
 
         /* Aqui passamos a query que queremos usar como parâmetro do select genérico.
         * Importante: Se queremos somente alguns campos (e não todos os campos da classe/objeto) temos que passar:
-        * String query = "select new entities.classe (campo1, campo2, campo3) from nomeDaClasse"
+        * String query = "select new br.com.apson.entities.classe (campo1, campo2, campo3) from nomeDaClasse"
         * e ter um construtor na classe com os campos estamos retornando na ordem, senão dá pau
         * Isso também mantém legibilidade, visto que os babuínos que lerão isso sempre saberão de onde
         * estão vindo os dados
@@ -31,12 +25,6 @@ public class Main {
         for (SuperCadastros pessoa:pessoas){
             System.out.println(pessoa.toString());
         }
-        query = "select new entities.SuperCadastros (id, nome, emailContato) from SuperCadastros";
-        pessoas = generics.selectBanco(query, SuperCadastros.class);
-        for (SuperCadastros pessoa :pessoas){
-            System.out.println(pessoa.toString2());
-        }
-
         sc.close();
     }
 }

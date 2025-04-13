@@ -1,8 +1,9 @@
-package entities;
+package br.com.apson.entities;
 
 import jakarta.persistence.*;
-import util.Enums;
+
 @Entity
+@Inheritance (strategy = InheritanceType.JOINED)
 @Table (name = "cad_pessoas")
 public class SuperCadastros {
     @Id
@@ -96,23 +97,4 @@ public class SuperCadastros {
         this.emailContato = emailContato;
     }
 
-    @Override
-    public String toString() {
-        return  "SuperCadastros{" +
-                "id=" + id +
-                ", telefoneContato='" + telefoneContato + '\'' +
-                ", emailContato='" + emailContato + '\'' +
-                ", login='" + login + '\'' +
-                ", senha='" + senha + '\'' +
-                ", Nome='" + nome + '\'' +
-                '}';
-    }
-
-    public String toString2() {
-        return  "SuperCadastros{" +
-                "id=" + id +
-                ", Nome='" + nome + '\'' +
-                ", emailContato='" + emailContato + '\'' +
-                '}';
-    }
 }

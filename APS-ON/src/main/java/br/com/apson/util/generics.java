@@ -1,11 +1,10 @@
-package services;
+package br.com.apson.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class generics {
@@ -100,6 +99,7 @@ public class generics {
         }finally {
             sessionFactory.close();
             session.close();
+
         }
     }
 }
