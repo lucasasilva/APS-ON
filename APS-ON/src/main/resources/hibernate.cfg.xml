@@ -22,7 +22,7 @@
         <property name="show_sql">false</property> <!-- Show SQL in console -->
         <property name="format_sql">true</property> <!-- Show SQL formatted -->
 
-        <mapping class="entities.CadPessoas"/>
+        <mapping class="entities.SuperCadastros"/>
 
     </session-factory>
 </hibernate-configuration>
