@@ -6,10 +6,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CadAlunos extends SuperCadastros {
-
     private List<CadAlunos> alunos = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     private Enums.periodos periodo;
+
+    public Enums.periodos getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(Enums.periodos periodo) {
+        this.periodo = periodo;
+    }
 
     public List<CadAlunos> getAlunos() {
         return alunos;
@@ -62,7 +69,7 @@ public class CadAlunos extends SuperCadastros {
             System.out.println(i + " - " + periodos[i]);
         }
         System.out.print("Escolha o número correspondente ao período: ");
-        aluno.setPeriodo(scanner.nextLine());
+
 
 
         System.out.print("Informe o telefone de contato: ");
@@ -76,26 +83,6 @@ public class CadAlunos extends SuperCadastros {
 
         System.out.print("Informe a senha: ");
         aluno.setSenha(scanner.nextLine());
-
-        System.out.println("Escolha o tipo de cadastro:");
-        Enums.tipoCadastro[] tipos = Enums.tipoCadastro.values();
-        for (int i = 0; i < tipos.length; i++) {
-            System.out.println(i + ". " + tipos[i]);
-        }
-        System.out.print("Digite o número correspondente: ");
-        int escolhaTipo = scanner.nextInt();
-        scanner.nextLine();
-
-        if (escolhaTipo >= 0 && escolhaTipo < tipos.length) {
-            if (tipos[escolhaTipo] == Enums.tipoCadastro.Professor) {
-                System.out.println("Cadastro de professores não permitido! Voltando ao menu...");
-                return;
-            }
-            aluno.setTipoCadastro(tipos[escolhaTipo]);
-        } else {
-            System.out.println("Opção inválida! Definindo como Aluno por padrão.");
-            aluno.setTipoCadastro(Enums.tipoCadastro.Aluno);
-        }
 
         alunos.add(aluno);
         System.out.println("Aluno cadastrado com sucesso!");
