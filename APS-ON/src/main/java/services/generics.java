@@ -8,12 +8,20 @@ import org.hibernate.cfg.Configuration;
 import java.util.List;
 
 public class generics {
-    public static List<Object[]> queryGenerica(String query){
+
+    /*Método genérico para fazer select o banco
+       <T> especifica um tipo "genérico" então <T> List<T> significa que é para o compilador esperar um
+       retorno to tipo Objeto de seja lá qual for a classe que passarmos no input (Class<T> classeDoObjeto)
+
+       Dessa forma, podemos usar sempre a mesma query para trazermos TODOS OS CAMPO em um objeto ou
+       campos específicos (Em caso de campos específicos, requer um construtor que contenha somente ele)
+    */
+    public static <T> List<T> selectBanco(String query, Class<T> classeDoObjeto){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        List<Object[]> resultList = session
-                .createQuery(query, Object[].class)
+        List<T> resultList = session
+                .createQuery(query, classeDoObjeto)
                 .getResultList();
         transaction.commit();
         session.close();
