@@ -63,20 +63,6 @@ public class CadInstituicoesSaude extends SuperCadastros {
         for (int i = 0; i < tipos.length; i++) {
             System.out.println(i + ". " + tipos[i]);
         }
-        System.out.print("Digite o número correspondente: ");
-        int escolhaTipo = scanner.nextInt();
-        scanner.nextLine();
-
-        if (escolhaTipo >= 0 && escolhaTipo < tipos.length) {
-            if (tipos[escolhaTipo] != Enums.tipoCadastro.Instituicao) {
-                System.out.println("Apenas Instituições podem ser cadastradas!");
-                return;
-            }
-            instituicoesSaude.setTipoCadastro(tipos[escolhaTipo]);
-        } else {
-            System.out.println("Opção inválida! Definindo como Instituição por padrão.");
-            instituicoesSaude.setTipoCadastro(Enums.tipoCadastro.Instituicao);
-        }
 
         instituicoesSaudes.add(instituicoesSaude);
         System.out.println("Instituição cadastrada com sucesso!");
