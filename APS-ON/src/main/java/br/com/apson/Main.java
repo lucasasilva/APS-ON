@@ -3,50 +3,41 @@ package br.com.apson;
 import entities.AreaAtuacaoMedica;
 import entities.CadInstituicoesSaude;
 import entities.CadProfessores;
+import entities.SuperCadastros;
 import util.Menu;
 
+import services.*;
+
+import java.io.ObjectStreamException;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int menu;
-        AreaAtuacaoMedica areaAtuacaoMedica = new AreaAtuacaoMedica();
-        Map<Integer, String> areaAtuacaoMedicaList = new HashMap<>();
-        CadInstituicoesSaude cadInstituicoesSaude = new CadInstituicoesSaude();
-        List<CadInstituicoesSaude> cadInstituicoesSaudeList = new ArrayList<>();
 
-        CadProfessores professores = new CadProfessores();
-        List<CadProfessores> professoresLista = new ArrayList<>();
+        /* Aqui passamos a query que queremos usar como parâmetro do select genérico.
+        * Importante: Se queremos somente alguns campos (e não todos os campos da classe/objeto) temos que passar:
+        * String query = "select new entities.classe (campo1, campo2, campo3) from nomeDaClasse"
+        * e ter um construtor na classe com os campos estamos retornando na ordem, senão dá pau
+        * Isso também mantém legibilidade, visto que os babuínos que lerão isso sempre saberão de onde
+        * estão vindo os dados
+        *
+        * ABAIXO DOIS EXEMPLOS DE COMO FAZÊ-LO*/
+        String query = "from SuperCadastros";
 
-        do {
-            Menu.menu();
-            menu = sc.nextInt();
-            switch (menu){
-                case 1:
-                    System.out.println("Não implementado");
-                    break;
-                case 2:
-                    System.out.println("não implementado");
-                    break;
-                case 3:
-                    areaAtuacaoMedica.criaCadastro(sc, areaAtuacaoMedicaList);
-                    areaAtuacaoMedicaList.forEach((num, valor) -> System.out.println(num+" : "+valor));
-                    break;
-                case 4:
-                    System.out.println("não implementado ainda");
-                    break;
-                case 5:
-                    System.out.println("Obrigado por usar o APS-ON");
-                    break;
-                default:
-                    System.out.println("opção inválida, tente novamente!");
-                    menu = sc.nextInt();
-            }
-        //mainafasd
-        }while(menu != 5);
+        List<SuperCadastros> pessoas  = generics.selectBanco(query, SuperCadastros.class);
 
+        for (SuperCadastros pessoa:pessoas){
+            System.out.println(pessoa.toString());
+        }
+        query = "select new entities.SuperCadastros (id, nome, emailContato) from SuperCadastros";
+        pessoas = generics.selectBanco(query, SuperCadastros.class);
+        for (SuperCadastros pessoa :pessoas){
+            System.out.println(pessoa.toString2());
+        }
 
+        sc.close();
     }
 }
 
