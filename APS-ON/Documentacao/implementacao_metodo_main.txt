@@ -13,9 +13,9 @@ Após o login, a depender do tipo do usuário logado:
 	Se for aluno, mostrar as APS disponíveis;
 	A método para se aplicar a uma APS;
 	
-	Se for professor, a possibilidade de criar e alterar cadastros;
+	Se for professor, a possibilidade de criar e alterar br.com.apson.entities;
 			
-	Se for adm, além dos cadastros, visualizar os alunos em cada APS;
+	Se for adm, além dos br.com.apson.entities, visualizar os alunos em cada APS;
 	
 Métodos a serem implementados:
 	Criar cadastro de professor;
