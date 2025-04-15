@@ -1,4 +1,4 @@
-package br.com.apson.util;
+package util;
 
 public class Enums {
 
