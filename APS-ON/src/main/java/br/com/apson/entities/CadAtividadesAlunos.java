@@ -27,4 +27,12 @@ public class CadAtividadesAlunos extends SuperCadastros{
     public void setPeriod(int period) {
         this.period = period;
     }
+
+    @Override
+    public String toString() {
+        return "CadAtividadesAlunos{" +
+                "ra=" + ra +
+                ", period=" + period +
+                '}';
+    }
 }

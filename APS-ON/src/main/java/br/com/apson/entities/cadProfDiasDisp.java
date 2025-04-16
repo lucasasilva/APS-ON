@@ -17,4 +17,11 @@ public class cadProfDiasDisp extends CadProfessores{
     public void setDiasDisponiveis(int dias_disponiveis) {
         this.diasDisponiveis = diasDisponiveis;
     }
+
+    @Override
+    public String toString() {
+        return "cadProfDiasDisp{" +
+                "diasDisponiveis=" + diasDisponiveis +
+                '}';
+    }
 }
