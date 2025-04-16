@@ -11,10 +11,10 @@
 <hibernate-configuration>
     <session-factory>
 
-        <property name="connection.url">jdbc:postgresql://localhost/apson</property> <!-- BD Mane -->
+        <property name="connection.url">jdbc:postgresql://localhost/APSON</property> <!-- BD Mane -->
         <property name="connection.driver_class">org.postgresql.Driver</property> <!-- DB Driver -->
         <property name="connection.username">postgres</property> <!-- DB User -->
-        <property name="connection.password">masterkey</property> <!-- DB Password -->
+        <property name="connection.password">admin</property> <!-- DB Password -->
 
         <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property> <!-- DB Dialect -->
         <property name="hbm2ddl.auto">none</property> <!-- create / create-drop / update -->
@@ -23,6 +23,13 @@
         <property name="format_sql">true</property> <!-- Show SQL formatted -->
 
         <mapping class="br.com.apson.entities.SuperCadastros"/>
+        <mapping class="br.com.apson.entities.CadProfessores"/>
+        <mapping class="br.com.apson.entities.cadProfDiasDisp"/>
+        <mapping class="br.com.apson.entities.CadInstituicoesSaude"/>
+        <mapping class="br.com.apson.entities.CadAtividadesAlunos"/>
+        <mapping class="br.com.apson.entities.CadAtividades"/>
+        <mapping class="br.com.apson.entities.CadAlunos"/>
+        <mapping class="br.com.apson.entities.AreaAtuacaoMedica"/>
 
     </session-factory>
 </hibernate-configuration>
