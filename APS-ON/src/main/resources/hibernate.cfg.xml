@@ -23,6 +23,6 @@
         <property name="format_sql">true</property> <!-- Show SQL formatted -->
 
         <mapping class="br.com.apson.entities.SuperCadastros"/>
-
+        <mapping class="br.com.apson.entities.CadProfessores"/>
     </session-factory>
 </hibernate-configuration>
