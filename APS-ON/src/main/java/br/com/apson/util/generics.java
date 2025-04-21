@@ -29,7 +29,7 @@ public class generics {
        pela session. Commit, rollback, iara iara, a putaria toda.
 
        Depois tem que fechar todo mundo, senão DREADLOCKS
-       para recriar
+
     */
     public static <T> List<T> selectBanco(String query, Class<T> classeDoObjeto){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
