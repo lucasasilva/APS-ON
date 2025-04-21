@@ -9,5 +9,5 @@ public interface CadProfessoresRepInterface {
     void criarProfessor(CadProfessores professor);
     void alteraProfessor(CadProfessores professor);
 
-    List<SuperCadastros> retornarProfessor();
+    List<CadProfessores> retornarProfessor();
 }

@@ -2,6 +2,8 @@ package br.com.apson;
 
 import br.com.apson.entities.SuperCadastros;
 
+import br.com.apson.repository.CadProfessoresRepImp;
+import br.com.apson.repository.CadProfessoresRepInterface;
 import br.com.apson.util.generics;
 
 import java.util.*;
@@ -26,6 +28,7 @@ public class Main {
             System.out.println(pessoa.toString());
         }
         sc.close();
+
     }
 }
 

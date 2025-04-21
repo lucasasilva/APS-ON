@@ -97,4 +97,15 @@ public class SuperCadastros {
         this.emailContato = emailContato;
     }
 
+    @Override
+    public String toString() {
+        return "SuperCadastros{" +
+                "id=" + id +
+                ", telefoneContato='" + telefoneContato + '\'' +
+                ", emailContato='" + emailContato + '\'' +
+                ", login='" + login + '\'' +
+                ", senha='" + senha + '\'' +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
 }
