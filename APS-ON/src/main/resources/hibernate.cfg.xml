@@ -24,5 +24,7 @@
 
         <mapping class="br.com.apson.entities.SuperCadastros"/>
         <mapping class="br.com.apson.entities.CadProfessores"/>
+        <mapping class="br.com.apson.entities.CadProfDiasDisp"/>
+
     </session-factory>
 </hibernate-configuration>

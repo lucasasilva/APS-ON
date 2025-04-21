@@ -1,5 +1,6 @@
 package br.com.apson.repository;
 
+import br.com.apson.entities.CadProfDiasDisp;
 import br.com.apson.entities.CadProfessores;
 import br.com.apson.entities.SuperCadastros;
 import br.com.apson.util.generics;
@@ -18,7 +19,7 @@ public class CadProfessoresRepImp implements CadProfessoresRepInterface{
     }
 
     @Override
-    public List<SuperCadastros> retornarProfessor() {
-         generics.selectBanco("from CadProfessores", CadProfessores.class);
+    public List<CadProfessores> retornarProfessor() {
+        return generics.selectBanco("from CadProfessores", CadProfessores.class);
     }
 }
