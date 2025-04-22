@@ -5,7 +5,7 @@ import br.com.apson.util.generics;
 
 import java.util.List;
 
-public class CadAlunosRepImp implements CadAlunosRepInterface{
+public class CadAlunosRepImpInterface implements CadAlunosRepInterface{
     @Override
     public void criarAluno(CadAlunos aluno) {
         generics.insertBanco(aluno);
