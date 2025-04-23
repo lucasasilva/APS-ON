@@ -30,4 +30,14 @@ public class CadInstituicoesSaude  {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public CadInstituicoesSaude(String nome) {
+        this.nome = nome;
+    }
+
+    public CadInstituicoesSaude(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+    public CadInstituicoesSaude(){}
 }

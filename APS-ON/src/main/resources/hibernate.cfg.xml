@@ -25,7 +25,7 @@
         <mapping class="br.com.apson.entities.SuperCadastros"/>
         <mapping class="br.com.apson.entities.CadProfessores"/>
         <mapping class="br.com.apson.entities.CadProfDiasDisp"/>
-        <mapping class="br.com.apson.entities.AreaAtuacaoMedic"/>
+        <mapping class="br.com.apson.entities.AreaAtuacaoMedica"/>
         <mapping class="br.com.apson.entities.CadInstituicoesSaude"/>
     </session-factory>
 </hibernate-configuration>
