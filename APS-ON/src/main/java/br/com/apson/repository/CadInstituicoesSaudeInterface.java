@@ -9,4 +9,5 @@ public interface CadInstituicoesSaudeInterface {
     void alteraInstituicaoSaude(CadInstituicoesSaude cadInstituicoesSaude);
 
     List<CadInstituicoesSaude> retornarTodasInstituicoesCadastradas();
+    CadInstituicoesSaude retornaInstuicaoByID(int id);
 }

@@ -20,4 +20,9 @@ public class CadInstituicoesSaudeRepImpInterface implements CadInstituicoesSaude
     public List<CadInstituicoesSaude> retornarTodasInstituicoesCadastradas() {
         return generics.selectBanco("from CadInstituicoesSaude", CadInstituicoesSaude.class);
     }
+
+    @Override
+    public CadInstituicoesSaude retornaInstuicaoByID(int id) {
+        return generics.selectBancoByID("from CadInstituicoesSaude", CadInstituicoesSaude.class, id);
+    }
 }

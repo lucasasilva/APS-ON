@@ -27,4 +27,7 @@ public class CadInstuicoesSaudeService {
     public List<CadInstituicoesSaude> retornaTodasInstituicoes(){
         return cadInstituicoesSaude.retornarTodasInstituicoesCadastradas();
     }
+    public CadInstituicoesSaude retornaInstuicaoByID(int id){
+        return cadInstituicoesSaude.retornaInstuicaoByID(id);
+    }
 }

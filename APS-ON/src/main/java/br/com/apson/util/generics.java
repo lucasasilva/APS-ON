@@ -44,7 +44,19 @@ public class generics {
 
         return resultList;
     }
-
+    public static <T> T selectBancoByID(String query, Class<T> classeDoObjeto, int id){
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        T result = session
+                .createQuery(query+" where id = :id", classeDoObjeto)
+                .setParameter("id", id)
+                .getSingleResultOrNull();
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
+        return result;
+    }
     /* As diferenças daqui para baixo:
     Objeto genérico: Não importa a classe, funciona para todas;
     try - catch: Boa prática para evitar que a transação de errado e a gente sem saber o porquê;
