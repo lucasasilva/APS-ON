@@ -62,7 +62,7 @@ public class generics {
     try - catch: Boa prática para evitar que a transação de errado e a gente sem saber o porquê;
     Faz rollback automático (=
     * */
-    public static <T> void insertBanco(Object objetoGenerico){
+    public static void insertBanco(Object objetoGenerico){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
@@ -80,7 +80,7 @@ public class generics {
         }
     }
 
-    public static <T> void updateBanco(Object objetoGenerico){
+    public static void updateBanco(Object objetoGenerico){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
@@ -97,7 +97,7 @@ public class generics {
             session.close();
         }
     }
-    public static <T> void deleteBanco(Object objetoGenerico){
+    public static void deleteBanco(Object objetoGenerico){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
