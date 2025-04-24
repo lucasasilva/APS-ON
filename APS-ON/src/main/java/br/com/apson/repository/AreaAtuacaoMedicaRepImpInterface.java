@@ -19,4 +19,9 @@ public class AreaAtuacaoMedicaRepImpInterface implements AreaAtuacaoMedicaRepInt
     public List<AreaAtuacaoMedica> retornaTodasAreasCadastradas() {
         return generics.selectBanco("from AreaAtuacaoMedica", AreaAtuacaoMedica.class);
     }
+
+    @Override
+    public AreaAtuacaoMedica retornaAreaAtuacaoByID(int id) {
+        return generics.selectBancoByID("from AreaAtuacaoMedica", AreaAtuacaoMedica.class, id);
+    }
 }

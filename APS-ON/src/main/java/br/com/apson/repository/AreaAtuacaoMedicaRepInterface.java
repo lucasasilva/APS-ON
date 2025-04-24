@@ -11,4 +11,5 @@ public interface AreaAtuacaoMedicaRepInterface {
     void alterarCadastroAreaAtuacaoMedica(AreaAtuacaoMedica areaAtuacaoMedica);
 
     List<AreaAtuacaoMedica> retornaTodasAreasCadastradas();
+    AreaAtuacaoMedica retornaAreaAtuacaoByID(int id);
 }
