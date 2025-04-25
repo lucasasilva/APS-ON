@@ -1,11 +1,13 @@
 package br.com.apson.entities;
 
+import br.com.apson.util.getIDGenerico;
 import jakarta.persistence.*;
+
 
 @Entity
 @Inheritance (strategy = InheritanceType.JOINED)
 @Table (name = "cad_pessoas")
-public class SuperCadastros {
+public class SuperCadastros implements getIDGenerico {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,7 +22,7 @@ public class SuperCadastros {
     @Column (name = "nome")
     private String nome;
 
-
+    @Override
     public long getId() {
         return id;
     }

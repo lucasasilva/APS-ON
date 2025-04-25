@@ -63,6 +63,7 @@ public class generics {
     Faz rollback automático (=
     * */
     public static void insertBanco(Object objetoGenerico){
+        /* Este aqui faz um insert genérico, no qual não precisamos saber o ID, podemos receber depois*/
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
@@ -78,6 +79,34 @@ public class generics {
             sessionFactory.close();
             session.close();
         }
+    }
+    public static int insertBancoRetornaID(getIDGenerico objetoGenerico){
+        /* Aqui retorna um ID associado que precisaremos passar como chave estrangeira de alguma coisa
+        * Perceba, Ivair, que o argumento da função tem o mesmo tipo daquela interface genérica ali do lado.
+        * Por que?
+        * Porque é um c# (Lê-se: "Cê Xarp") e fazer retornar id nessa merda
+        * Então, criamos uma interface que tem o método "getId()";
+          Forçamos todas as classes que tem o método "getId()" a implementar essa interface;
+          Declaramos, ali em cima, o nosso "objeto genérico" como sendo do tipo da interface
+          * Isso fará com que tenhamos acesso a todos os dados do objeto declarado (CadProfessor ou CadAlunos, por exemplo)
+          * mantendo acesso ao método 'getId()', para que possamos retornar o id criado*/
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+            session.persist(objetoGenerico);
+            transaction.commit();
+            session.flush();
+        }catch (Exception e){
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }finally {
+            sessionFactory.close();
+            session.close();
+        }
+            return Math.toIntExact(objetoGenerico.getId());
     }
 
     public static void updateBanco(Object objetoGenerico){
