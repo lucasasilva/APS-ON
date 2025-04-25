@@ -6,8 +6,9 @@ import br.com.apson.entities.SuperCadastros;
 import java.util.List;
 
 public interface CadProfessoresRepInterface {
-    void criarProfessor(CadProfessores professor);
+    int criarProfessor(CadProfessores professor);
     void alteraProfessor(CadProfessores professor);
 
-    List<CadProfessores> retornarProfessor();
+    List<CadProfessores> retornaTodosProfessores();
+    CadProfessores retornaProfessorByID(int id);
 }
