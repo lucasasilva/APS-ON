@@ -37,4 +37,23 @@ public class CadProfDiasDisp {
     public void setDiasDisponiveis(int dias_disponiveis) {
         this.diasDisponiveis = diasDisponiveis;
     }
+
+    //construtores
+
+    public CadProfDiasDisp(int id, int diasDisponiveis, CadProfessores idProfessor) {
+        this.id = id;
+        this.diasDisponiveis = diasDisponiveis;
+        this.idProfessor = idProfessor;
+    }
+
+    public CadProfDiasDisp( CadProfessores idProfessor, int diasDisponiveis ){
+        this.idProfessor = idProfessor;
+        this.diasDisponiveis = diasDisponiveis;
+    }
+    public CadProfDiasDisp (int diasDisponiveis){
+        this.diasDisponiveis = diasDisponiveis;
+    }
+
+    public CadProfDiasDisp() {
+    }
 }

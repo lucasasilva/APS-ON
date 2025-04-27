@@ -44,13 +44,26 @@ public class generics {
 
         return resultList;
     }
-
+    public static <T> T selectBancoByID(String query, Class<T> classeDoObjeto, int id){
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        T result = session
+                .createQuery(query+" where id = :id", classeDoObjeto)
+                .setParameter("id", id)
+                .getSingleResultOrNull();
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
+        return result;
+    }
     /* As diferenças daqui para baixo:
     Objeto genérico: Não importa a classe, funciona para todas;
     try - catch: Boa prática para evitar que a transação de errado e a gente sem saber o porquê;
     Faz rollback automático (=
     * */
-    public static <T> void insertBanco(Object objetoGenerico){
+    public static void insertBanco(Object objetoGenerico){
+        /* Este aqui faz um insert genérico, no qual não precisamos saber o ID, podemos receber depois*/
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
@@ -67,8 +80,36 @@ public class generics {
             session.close();
         }
     }
+    public static int insertBancoRetornaID(getIDGenerico objetoGenerico){
+        /* Aqui retorna um ID associado que precisaremos passar como chave estrangeira de alguma coisa
+        * Perceba, Ivair, que o argumento da função tem o mesmo tipo daquela interface genérica ali do lado.
+        * Por que?
+        * Porque é um c# (Lê-se: "Cê Xarp") de fazer retornar id nessa merda
+        * Então, criamos uma interface que tem o método "getId()";
+          Forçamos todas as classes que tem o método "getId()" a implementar essa interface;
+          Declaramos, ali em cima, o nosso "objeto genérico" como sendo do tipo da interface
+          * Isso fará com que tenhamos acesso a todos os dados do objeto declarado (CadProfessor ou CadAlunos, por exemplo)
+          * mantendo acesso ao método 'getId()', para que possamos retornar o id criado*/
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
 
-    public static <T> void updateBanco(Object objetoGenerico){
+        try {
+            transaction = session.beginTransaction();
+            session.persist(objetoGenerico);
+            transaction.commit();
+            //session.flush();
+        }catch (Exception e){
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }finally {
+            sessionFactory.close();
+            session.close();
+        }
+            return Math.toIntExact(objetoGenerico.getId());
+    }
+
+    public static void updateBanco(Object objetoGenerico){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
@@ -85,7 +126,7 @@ public class generics {
             session.close();
         }
     }
-    public static <T> void deleteBanco(Object objetoGenerico){
+    public static void deleteBanco(Object objetoGenerico){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = null;

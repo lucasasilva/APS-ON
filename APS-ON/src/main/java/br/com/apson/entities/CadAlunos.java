@@ -23,8 +23,8 @@ public class CadAlunos extends SuperCadastros {
     }
 
     // Construtor com os campos herdado da SuperCadastros
-    public CadAlunos(long id, String telefoneContato, String emailContato, String login, String senha, String nome, int ra, int periodo) {
-        super(id, telefoneContato, emailContato, login, senha, nome);
+    public CadAlunos(long id, String telefoneContato, String emailContato, String login, String senha, String nome, String tipo,  int ra, int periodo) {
+        super(id, telefoneContato, emailContato, login, senha, nome, tipo);
         this.ra = ra;
         this.periodo = periodo;
     }
