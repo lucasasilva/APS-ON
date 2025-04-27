@@ -84,7 +84,7 @@ public class generics {
         /* Aqui retorna um ID associado que precisaremos passar como chave estrangeira de alguma coisa
         * Perceba, Ivair, que o argumento da função tem o mesmo tipo daquela interface genérica ali do lado.
         * Por que?
-        * Porque é um c# (Lê-se: "Cê Xarp") e fazer retornar id nessa merda
+        * Porque é um c# (Lê-se: "Cê Xarp") de fazer retornar id nessa merda
         * Então, criamos uma interface que tem o método "getId()";
           Forçamos todas as classes que tem o método "getId()" a implementar essa interface;
           Declaramos, ali em cima, o nosso "objeto genérico" como sendo do tipo da interface
@@ -98,7 +98,7 @@ public class generics {
             transaction = session.beginTransaction();
             session.persist(objetoGenerico);
             transaction.commit();
-            session.flush();
+            //session.flush();
         }catch (Exception e){
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
