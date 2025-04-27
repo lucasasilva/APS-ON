@@ -44,8 +44,8 @@ public class CadProfessores  extends SuperCadastros {
         this.institucaoAtuacao = institucaoAtuacao;
     }
 
-    public CadProfessores(long id, String telefoneContato, String emailContato, String login, String senha, String nome, int institucaoAtuacao) {
-        super(id, telefoneContato, emailContato, login, senha, nome);
+    public CadProfessores(long id, String telefoneContato, String emailContato, String login, String senha, String nome, String tipo, int institucaoAtuacao) {
+        super(id, telefoneContato, emailContato, login, senha, nome, tipo);
         this.institucaoAtuacao = institucaoAtuacao;
     }
 

@@ -21,6 +21,16 @@ public class SuperCadastros implements getIDGenerico {
     private String senha;
     @Column (name = "nome")
     private String nome;
+    @Column (name = "tipo")
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
     @Override
     public long getId() {
@@ -84,13 +94,14 @@ public class SuperCadastros implements getIDGenerico {
         this.emailContato = email;
     }
 
-    public SuperCadastros(long id, String telefoneContato, String emailContato, String login, String senha, String nome) {
+    public SuperCadastros(long id, String telefoneContato, String emailContato, String login, String senha, String nome, String tipo) {
         this.id = id;
         this.telefoneContato = telefoneContato;
         this.emailContato = emailContato;
         this.login = login;
         this.senha = senha;
         this.nome = nome;
+        this.tipo =tipo;
     }
 
     public SuperCadastros(long id, String nome, String emailContato) {
