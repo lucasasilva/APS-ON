@@ -1,13 +1,16 @@
 package br.com.apson;
 
 import br.com.apson.entities.CadInstituicoesSaude;
+import br.com.apson.entities.CadProfDiasDisp;
+import br.com.apson.entities.CadProfessores;
 import br.com.apson.entities.SuperCadastros;
 
 import br.com.apson.repository.CadInstituicoesSaudeInterface;
 import br.com.apson.repository.CadInstituicoesSaudeRepImpInterface;
-import br.com.apson.repository.CadProfessoresRepImp;
+import br.com.apson.repository.CadProfessoresRepImplementa;
 import br.com.apson.repository.CadProfessoresRepInterface;
 import br.com.apson.services.CadInstuicoesSaudeService;
+import br.com.apson.services.CadProfessoresService;
 import br.com.apson.util.generics;
 
 import java.util.*;
@@ -34,17 +37,39 @@ public class Main {
 //        sc.close();
 
 
-        CadInstuicoesSaudeService cadInstuicoesSaudeService = new CadInstuicoesSaudeService(new CadInstituicoesSaudeRepImpInterface());
+        //CadInstuicoesSaudeService cadInstuicoesSaudeService = new CadInstuicoesSaudeService(new CadInstituicoesSaudeRepImpInterface());
         //CadInstituicoesSaude novaInstituicao = new CadInstituicoesSaude("Upa Vila A");
         //cadInstuicoesSaudeService.criarInstituicao(novaInstituicao);
-        List<CadInstituicoesSaude> lista =  cadInstuicoesSaudeService.retornaTodasInstituicoes();
-        CadInstituicoesSaude retorno = cadInstuicoesSaudeService.retornaInstuicaoByID(3);
-        for (CadInstituicoesSaude item : lista){
-            System.out.println(item.getId()+":"+item.getNome());
+  //      List<CadInstituicoesSaude> lista =  cadInstuicoesSaudeService.retornaTodasInstituicoes();
+//        CadInstituicoesSaude retorno = cadInstuicoesSaudeService.retornaInstuicaoByID(2);
+//        for (CadInstituicoesSaude item : lista){
+//            System.out.println(item.getId()+":"+item.getNome());
+//        }
+//
+//        System.out.println("\nRetorno de um id: \n");
+//        System.out.println(retorno.getId()+":"+retorno.getNome());
+        List<CadProfDiasDisp> dias = new ArrayList<>();
+        dias.add(new CadProfDiasDisp(1));
+        dias.add(new CadProfDiasDisp(2));
+        dias.add(new CadProfDiasDisp(3));
+        CadProfessoresService professor = new CadProfessoresService(new CadProfessoresRepImplementa());
+        CadProfessores novoProfessor = new CadProfessores();
+        novoProfessor.setId(4);
+        novoProfessor.setNome("Lucas");
+        novoProfessor.setLogin("lucas.silva@gmail.com");
+        novoProfessor.setSenha("@!@asdDDGG#");
+        novoProfessor.setInstitucaoAtuacao(1);
+        novoProfessor.setDiasDisponiveis(dias);
+
+        //professor.criarProfessor(novoProfessor);
+        professor.alterarProfessor(novoProfessor);
+
+        List<CadProfessores> professores = professor.retornaTodosProfessores();
+        for(CadProfessores i: professores){
+            System.out.println("id: "+ i.getId() + " Nome: "+ i.getNome() +", Login"+ i.getLogin()+", " + ", dias disp: ");
         }
 
-        System.out.println("\nRetorno de um id: \n");
-        System.out.println(retorno.getId()+":"+retorno.getNome());
+
     }
 }
 
