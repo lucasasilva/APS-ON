@@ -6,7 +6,7 @@ public interface getIDGenerico {
     Dessa forma, na classe que precisamos retornar o ID, posteriormente,
     forçamos a implementação desta interface (já que 'getId' é um getter padrão de todas as nossas classes)
     e, no nossos genéricos passamos um argumento com o tipo dessa interface, mantendo os dados deste objeto +
-    acesso ao método "getId"
+    acesso ao méto do "getId"
     * */
     long getId();
 }

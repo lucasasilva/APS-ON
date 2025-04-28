@@ -9,7 +9,7 @@ import java.util.List;
 
 public class generics {
 
-    /*Método genérico para fazer select o banco
+    /*Méto do genérico para fazer select o banco
        <T> especifica um tipo "genérico" então <T> List<T> significa que é para o compilador esperar um
        retorno to tipo Objeto de seja lá qual for a classe que passarmos no input (Class<T> classeDoObjeto)
 
@@ -28,7 +28,7 @@ public class generics {
        - Transaction, como o nome sugere, usa a conexão aberta para controlar uma transação (select, insert, update, delete) que fora aberta
        pela session. Commit, rollback, iara iara, a putaria toda.
 
-       Depois tem que fechar todo mundo, senão DREADLOCKS
+       Depois tem que fechar to do mundo, senão DREADLOCKS
 
     */
     public static <T> List<T> selectBanco(String query, Class<T> classeDoObjeto){
@@ -85,11 +85,11 @@ public class generics {
         * Perceba, Ivair, que o argumento da função tem o mesmo tipo daquela interface genérica ali do lado.
         * Por que?
         * Porque é um c# (Lê-se: "Cê Xarp") de fazer retornar id nessa merda
-        * Então, criamos uma interface que tem o método "getId()";
-          Forçamos todas as classes que tem o método "getId()" a implementar essa interface;
+        * Então, criamos uma interface que tem o méto do "getId()";
+          Forçamos todas as classes que tem o méto do "getId()" a implementar essa interface;
           Declaramos, ali em cima, o nosso "objeto genérico" como sendo do tipo da interface
           * Isso fará com que tenhamos acesso a todos os dados do objeto declarado (CadProfessor ou CadAlunos, por exemplo)
-          * mantendo acesso ao método 'getId()', para que possamos retornar o id criado*/
+          * mantendo acesso ao méto do 'getId()', para que possamos retornar o id criado*/
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = null;

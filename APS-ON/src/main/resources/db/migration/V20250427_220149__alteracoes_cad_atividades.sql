@@ -7,5 +7,5 @@ alter column instituicao_prestacao set not null,
 alter column qtd_vagas set not null,
 alter column dt_inicio set not null,
 alter column dt_fim set not null,
-alter column area_atuacao_media set not null,
+alter column area_atuacao_medica set not null,
 alter column tipo_atividade set not null;
