@@ -62,7 +62,7 @@ public class Main {
         novoProfessor.setDiasDisponiveis(dias);
 
         //professor.criarProfessor(novoProfessor);
-        professor.alterarProfessor(novoProfessor);
+        //professor.alterarProfessor(novoProfessor);
 
         List<CadProfessores> professores = professor.retornaTodosProfessores();
         for(CadProfessores i: professores){
