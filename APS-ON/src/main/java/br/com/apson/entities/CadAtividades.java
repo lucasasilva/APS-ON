@@ -1,17 +1,16 @@
 package br.com.apson.entities;
 
+import br.com.apson.util.getIDGenerico;
 import jakarta.persistence.*;
-import br.com.apson.util.Enums;
-import org.hibernate.engine.internal.Cascade;
+
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 
 @Entity
 @Table (name = "cad_atividades")
-public class CadAtividades {
+public class CadAtividades implements getIDGenerico {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
@@ -79,7 +78,7 @@ public class CadAtividades {
     /*TODO: Criar construtores sem aceitar as listas de data, grupo, aluno etc. Para permitir gravar a atividade e posterior alteração
     * */
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
