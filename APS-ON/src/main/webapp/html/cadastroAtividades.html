@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Atividades</title>
+    <link rel="stylesheet" href="cadastroAtividades.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        
+        <a href="cadastroAlunos.html" title="cad Alunos">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>cadastro de alunos</span>
+        </a>
+
+        <a href="cadastroProfessores.html" title="cad Professores">
+            <i class="fa-solid fa-id-card-clip"></i>
+            <span>cadastro de professores</span>
+        </a>
+
+        <a href="cadastroAtividades.html" title="cad Atividades">
+            <i class="fa-solid fa-list-check"></i>
+            <span>cadastro de Atividades</span>
+        </a>
+
+     
+        <a href="OrganizacoesRespon.html" title="Organizações">
+            <i class="fa-solid fa-hospital"></i>
+            <span>Organizações</span>
+        </a>
+
+
+        <a href="menu.html" title="Organizações">
+            <i class="fa-solid fa-house"></i>
+            <span>Menu</span>
+        </a>
+
+    </div>
+ 
+
+    <div class="content">
+        <div class="form-container">
+           
+            <div class="header-bar">
+                Cadastro de Atividades
+            </div>
+
+          
+            <div class="tabs">
+                <button id="aps-tab" class="tab active">APS</button>
+                <button id="eps-tab" class="tab">EPS</button>
+            </div>
+
+            <!-- Formulário -->
+            <form>
+                <div class="form-group">
+                    <label for="instituicao">Instituição Responsável</label>
+                    <div class="input-container">
+                        <input type="text" id="instituicao" placeholder="HMCC">
+                        <button class="clear-btn">✖</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="professor">Professor Responsável</label>
+                    <div class="input-container">
+                        <input type="text" id="professor" placeholder="Ana J.">
+                        <button class="clear-btn">✖</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="area">Área de Atuação</label>
+                    <div class="input-container">
+                        <input type="text" id="area" placeholder="Pediatria">
+                        <button class="clear-btn">✖</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="qtd-vagas">Qtd Vagas</label>
+                    <input type="number" id="qtd-vagas" placeholder="60">
+                </div>
+                <div class="form-group">
+                    <label>Períodos:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="periodo"> 1º</label>
+                        <label><input type="checkbox" name="periodo"> 3º</label>
+                        <label><input type="checkbox" name="periodo"> 4º</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="data-inicio">Data</label>
+                    <input type="date" id="data-inicio">
+                </div>
+                <div class="time-group">
+                    <div class="form-group">
+                        <label for="hora-inicio">Hora Início</label>
+                        <input type="time" id="hora-inicio">
+                    </div>
+                    <div class="form-group">
+                        <label for="hora-fim">Hora Fim</label>
+                        <input type="time" id="hora-fim">
+                    </div>
+                </div>
+                <div class="form-group button-group">
+                    <button type="submit" class="btn btn-save">Salvar</button>
+                    <button type="button" class="btn btn-cancel">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="cadastroAtividades.js"></script>
+</body>
+</html>

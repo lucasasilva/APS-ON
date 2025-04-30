@@ -1,0 +1,114 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo do corpo da página */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/fundomedico.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Container principal do formulário de login */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    border-radius: 10px;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
+}
+
+/* Estilo do formulário de login */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título do formulário */
+.login-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Labels dos campos */
+.login-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Campos de entrada (input) */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Opções de "manter-me conectado" */
+.options {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.options input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Botão de login */
+button {
+    padding: 10px;
+    background-color: #00bfff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #009fdd;
+}
+
+/* Links "Esqueci minha senha" e "Cadastrar-me" */
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.links a {
+    color: #00bfff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #007bbf;
+    text-decoration: underline;
+}
+
+/* Estilo para placeholder */
+::placeholder {
+    color: #999;
+    font-style: italic;
+}

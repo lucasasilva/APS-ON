@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/salvalogin.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form">
+            <h2>Login</h2>
+            <label for="username">Usuário</label>
+            <input type="text" id="username" placeholder="Digite seu usuário"></input>
+            
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="********"></input>
+            
+            <div class="options">
+                <input type="checkbox" id="remember-me"></input>
+                <label for="remember-me">Manter-me conectado</label>
+            </div>
+            
+            <button type="button" onclick="login()"><a href="menu.html"> Login</a> </button>
+            
+            <div class="links">
+                <a href="#">Esqueci minha senha</a>
+                <a href="#">Cadastrar-se</a>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
