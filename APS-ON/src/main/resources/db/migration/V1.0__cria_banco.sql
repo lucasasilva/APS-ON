@@ -18,6 +18,7 @@ CREATE TABLE cad_instituicao_saude (
                                        id SERIAL,
                                        nome VARCHAR(30),
                                        CONSTRAINT pk_cad_instituicao_saude PRIMARY KEY (id)
+
 );
 
 CREATE TABLE cad_professores (
