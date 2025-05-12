@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('/fundomedico.png');
+    background-image: url('../fundomedico.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

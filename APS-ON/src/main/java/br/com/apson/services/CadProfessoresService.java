@@ -1,9 +1,10 @@
 package br.com.apson.services;
 
 import br.com.apson.entities.CadInstituicoesSaude;
-import br.com.apson.entities.CadProfDiasDisp;
 import br.com.apson.entities.CadProfessores;
 import br.com.apson.repository.*;
+import br.com.apson.repository.implementations.CadInstituicoesSaudeRepImpInterface;
+import br.com.apson.repository.implementations.CadProfDiasDispRepImplementa;
 
 import java.util.List;
 

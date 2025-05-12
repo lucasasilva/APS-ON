@@ -1,17 +1,10 @@
 package br.com.apson;
 
-import br.com.apson.entities.CadInstituicoesSaude;
 import br.com.apson.entities.CadProfDiasDisp;
 import br.com.apson.entities.CadProfessores;
-import br.com.apson.entities.SuperCadastros;
 
-import br.com.apson.repository.CadInstituicoesSaudeInterface;
-import br.com.apson.repository.CadInstituicoesSaudeRepImpInterface;
-import br.com.apson.repository.CadProfessoresRepImplementa;
-import br.com.apson.repository.CadProfessoresRepInterface;
-import br.com.apson.services.CadInstuicoesSaudeService;
+import br.com.apson.repository.implementations.CadProfessoresRepImplementa;
 import br.com.apson.services.CadProfessoresService;
-import br.com.apson.util.generics;
 
 import java.util.*;
 

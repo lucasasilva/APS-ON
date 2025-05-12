@@ -2,11 +2,12 @@
 
 
 // Função que é chamada quando o usuário clica no botão "Login"
-function login() {
+async function login() {
     const login = document.getElementById('username').value;
     const senha = document.getElementById('password').value;
 
-    const response =  fetch('http://localhost:9100/APS-ON/api/login', {
+    try{
+     const response =  await fetch('http://localhost:9100/APS-ON/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -16,7 +17,6 @@ function login() {
             senha: senha
         })
     });
-
     if (response.ok) {
         // Login certo, redireciona para a próxima página
         window.location.href = './menu.html';
@@ -24,7 +24,9 @@ function login() {
         // Login errado, mostra mensagem de erro
         alert('Login ou senha incorretos!');
     }
-
+}catch{
+    console.log("erro ao reter usuários");
+}
 }
 
 // Função que carrega os dados salvos do localStorage ao abrir a página

@@ -1,7 +1,4 @@
-package br.com.apson.repository;
-
-import br.com.apson.entities.CadAtividades;
-import br.com.apson.entities.CadAtividadesGrupos;
+package br.com.apson.repository.implementations;
 
 //public class CadAtividadesGruposImplementation implements CadAtividadesPeriodosInterface{
 //    @Override
