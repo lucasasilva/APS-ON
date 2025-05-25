@@ -1,12 +1,13 @@
-package br.com.apson.repository;
+package br.com.apson.repository.implementations;
 
 import br.com.apson.entities.CadAtividades;
 import br.com.apson.entities.CadAtividadesPeriodos;
+import br.com.apson.repository.CadAtividadesPeriodosInterface;
 import br.com.apson.util.generics;
 
 import java.util.List;
 
-public class CadAtividadesPeriodosImplementation implements CadAtividadesPeriodosInterface{
+public class CadAtividadesPeriodosImplementation implements CadAtividadesPeriodosInterface {
     @Override
     public void inserePeriodos(CadAtividades obj) {
         /*Recebe um objeto CadAtividades que foi inserido, percorre a lista de períodos que foi marcada pelo Userrr

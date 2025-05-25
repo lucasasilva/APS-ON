@@ -1,13 +1,11 @@
-package br.com.apson.controller;
+package br.com.apson.controller.menus;
 
 import br.com.apson.util.Menu;
 
 import java.util.Scanner;
 
-import static br.com.apson.controller.ProfessorController.professores;
 
-
-public class MenuController {
+public class MenuProf {
     public static void menu(){
     Scanner sc = new Scanner(System.in);
         int menu;
@@ -16,7 +14,7 @@ public class MenuController {
             menu = sc.nextInt();
             switch (menu) {
                 case 1://professores
-                    professores();
+
                     break;
                 case 2://alunos
                     break;

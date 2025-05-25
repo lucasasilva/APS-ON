@@ -1,10 +1,11 @@
-package br.com.apson.repository;
+package br.com.apson.repository.implementations;
 
 import br.com.apson.entities.AreaAtuacaoMedica;
+import br.com.apson.repository.AreaAtuacaoMedicaRepInterface;
 import br.com.apson.util.generics;
 import java.util.List;
 
-public class AreaAtuacaoMedicaRepImpInterface implements AreaAtuacaoMedicaRepInterface{
+public class AreaAtuacaoMedicaRepImpInterface implements AreaAtuacaoMedicaRepInterface {
     @Override
     public void cadastrarAreaAtuacaoMedica(AreaAtuacaoMedica areaAtuacaoMedica) {
         generics.insertBanco(areaAtuacaoMedica);

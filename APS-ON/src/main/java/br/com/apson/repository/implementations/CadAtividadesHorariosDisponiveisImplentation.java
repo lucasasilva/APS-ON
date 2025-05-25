@@ -1,12 +1,13 @@
-package br.com.apson.repository;
+package br.com.apson.repository.implementations;
 
 import br.com.apson.entities.CadAtividades;
 import br.com.apson.entities.CadAtividadesHorariosDisponiveis;
+import br.com.apson.repository.CadAtividadesHorariosDisponiveisInterface;
 import br.com.apson.util.generics;
 
 import java.util.List;
 
-public class CadAtividadesHorariosDisponiveisImplentation implements CadAtividadesHorariosDisponiveisInterface{
+public class CadAtividadesHorariosDisponiveisImplentation implements CadAtividadesHorariosDisponiveisInterface {
     @Override
     public void insereHorarios(CadAtividades obj) {
         /*

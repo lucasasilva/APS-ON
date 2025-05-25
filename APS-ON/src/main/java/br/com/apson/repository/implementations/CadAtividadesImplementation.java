@@ -1,11 +1,12 @@
-package br.com.apson.repository;
+package br.com.apson.repository.implementations;
 
 import br.com.apson.entities.CadAtividades;
+import br.com.apson.repository.CadAtividadesInterface;
 import br.com.apson.util.generics;
 
 import java.util.List;
 
-public class CadAtividadesImplementation implements CadAtividadesInterface{
+public class CadAtividadesImplementation implements CadAtividadesInterface {
     @Override
     public int criarAtividade(CadAtividades obj) {
         return generics.insertBancoRetornaID(obj);

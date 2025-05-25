@@ -118,13 +118,13 @@ public class SuperCadastros implements getIDGenerico {
 
     @Override
     public String toString() {
-        return "SuperCadastros{" +
+        return "Dados \n{" +
                 "id=" + id +
-                ", telefoneContato='" + telefoneContato + '\'' +
-                ", emailContato='" + emailContato + '\'' +
+                ", nome='" + nome + '\'' +
+                ", telefone Contato='" + telefoneContato + '\'' +
+                ", email Contato='" + emailContato + '\'' +
                 ", login='" + login + '\'' +
                 ", senha='" + senha + '\'' +
-                ", nome='" + nome + '\'' +
                 '}';
     }
 }

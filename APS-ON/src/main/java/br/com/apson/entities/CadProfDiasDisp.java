@@ -56,4 +56,11 @@ public class CadProfDiasDisp {
 
     public CadProfDiasDisp() {
     }
+
+    @Override
+    public String toString() {
+        return "" +
+                 diasDisponiveis +
+                ' ';
+    }
 }

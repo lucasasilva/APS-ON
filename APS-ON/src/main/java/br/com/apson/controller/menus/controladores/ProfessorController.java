@@ -1,37 +1,64 @@
-package br.com.apson.controller;
+package br.com.apson.controller.menus.controladores;
 
 import br.com.apson.entities.CadInstituicoesSaude;
 import br.com.apson.entities.CadProfDiasDisp;
 import br.com.apson.entities.CadProfessores;
-import br.com.apson.repository.CadInstituicoesSaudeRepImpInterface;
-import br.com.apson.repository.CadProfessoresRepImplementa;
-import br.com.apson.repository.CadProfessoresRepInterface;
+import br.com.apson.repository.implementations.CadInstituicoesSaudeRepImpInterface;
+import br.com.apson.repository.implementations.CadProfessoresRepImplementa;
 import br.com.apson.services.CadInstuicoesSaudeService;
 import br.com.apson.services.CadProfessoresService;
-import br.com.apson.util.Menu;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
 public class ProfessorController {
-    public static void professores(){
+    /*
+    * Loop porque essa opção pode ser uma alteração ou criação
+    * */
+    public static void criaAlteraProfessor(){
         Scanner sc = new Scanner(System.in);
         int menu;
         do {
-            Menu.menuProfessores();
+            System.out.println("1 - Cadastrar professor  2 - Alterar Cadastro");
             menu = sc.nextInt();
             switch (menu){
-                case 1:
-                    criarProfessor();
+                case 1://criar professor
+                    manutencaoCadProf(1,null);
                     break;
-                case 2:
+                case 2://alterar cadastro
+                    System.out.println("Qual cadastro será alterado?");
+                    Integer codProfessor = sc.nextInt();
+                    manutencaoCadProf(2, codProfessor);
+                    break;
+                case 0:
+                    System.out.println("Retornando ao menu!");
+                    break;
+                default:
+                    System.out.println("opção inválida");
             }
         }while(menu !=0);
+        sc.close();
+    }
+    public static void deletaProfessor(){
+        Scanner sc = new Scanner(System.in);
+        int codProfessor;
+        System.out.println("Qual o código do professor a ser excluído");
+        codProfessor = sc.nextInt();
+        deletarProfessor(codProfessor);
+    }
+    public static List<CadProfessores> retornaTodosCadastros(){
+        CadProfessoresService professores = new CadProfessoresService(new CadProfessoresRepImplementa());
+        return professores.retornaTodosProfessores();
     }
 
 
-    public static void criarProfessor(){
+
+        /*
+        * manutencao de cadastro porque essa função decide se vai criar um novo ou alterar um cadastro ali em cima
+        * desta forma não precisa criar a mesma lógica duas vezes, porque... preguiça*/
+    private static void manutencaoCadProf(int opcao, Integer codProfessor){
         CadProfessoresService professor = new CadProfessoresService(new CadProfessoresRepImplementa()) ;
         Scanner sc = new Scanner(System.in);
         CadProfessores novoProfessor= new CadProfessores();
@@ -70,7 +97,19 @@ public class ProfessorController {
             diasDisponiveis.add(new CadProfDiasDisp(dia));
         }
         novoProfessor.setDiasDisponiveis(diasDisponiveis);
-        professor.criarProfessor(novoProfessor);
+        if (opcao ==1) {
+            professor.criarProfessor(novoProfessor);
+        } else if (opcao ==2) {
+            novoProfessor.setId(codProfessor);
+            professor.alterarProfessor(novoProfessor);
+        }
     }
+
+    private static void deletarProfessor(int codProfessor){
+        //CadProfessoresService professor = new CadProfessoresService(new CadProfessoresRepImplementa());
+        System.out.println("nao implementado");
+    }
+
+
 
 }

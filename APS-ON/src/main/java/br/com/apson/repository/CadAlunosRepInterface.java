@@ -9,4 +9,5 @@ public interface CadAlunosRepInterface {
     void alterarAluno(CadAlunos aluno);
 
     List<CadAlunos> retornaAlunos();
+    CadAlunos retornaAlunoPorID(int id);
 }
