@@ -29,6 +29,7 @@ public class CadAlunos extends SuperCadastros {
         this.periodo = periodo;
     }
 
+
     // Getters e Setters
     public int getRa() {
         return ra;
@@ -44,5 +45,13 @@ public class CadAlunos extends SuperCadastros {
 
     public void setPeriodo(int periodo) {
         this.periodo = periodo;
+    }
+
+    @Override
+    public String toString() {
+        return  super.toString() + " " +
+                "ra=" + ra +
+                ", periodo=" + periodo +
+                "} " ;
     }
 }

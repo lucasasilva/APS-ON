@@ -1,25 +1,27 @@
 package br.com.apson.entities;
 
+import br.com.apson.util.getIDGenerico;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
 @Table (name = "cad_atividades_grupos")
-public class CadAtividadesGrupos {
+public class CadAtividadesGrupos implements getIDGenerico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
     @JoinColumn(name = "cod_atividade")
     private CadAtividades codAtividade;
+
     @Column (name = "cod_grupo")
-    private int cod_grupo;
+    private int codGrupo;
 
     @OneToMany(mappedBy = "codGrupo",cascade = CascadeType.REMOVE)
     private List<CadAtividadesGruposAlunos> alunosGrupo;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -35,12 +37,12 @@ public class CadAtividadesGrupos {
         this.codAtividade = codAtividade;
     }
 
-    public int getCod_grupo() {
-        return cod_grupo;
+    public int getCodGrupo() {
+        return codGrupo;
     }
 
-    public void setCod_grupo(int cod_grupo) {
-        this.cod_grupo = cod_grupo;
+    public void setCodGrupo(int codGrupo) {
+        this.codGrupo = codGrupo;
     }
 
     public List<CadAtividadesGruposAlunos> getAlunosGrupo() {
@@ -54,16 +56,21 @@ public class CadAtividadesGrupos {
     public CadAtividadesGrupos() {
     }
 
-    public CadAtividadesGrupos(CadAtividades codAtividade, int cod_grupo, List<CadAtividadesGruposAlunos> alunosGrupo) {
+    public CadAtividadesGrupos(CadAtividades codAtividade, int codGrupo, List<CadAtividadesGruposAlunos> alunosGrupo) {
         this.codAtividade = codAtividade;
-        this.cod_grupo = cod_grupo;
+        this.codGrupo = codGrupo;
         this.alunosGrupo = alunosGrupo;
     }
 
-    public CadAtividadesGrupos(int id, CadAtividades codAtividade, int cod_grupo, List<CadAtividadesGruposAlunos> alunosGrupo) {
+    public CadAtividadesGrupos(int id, CadAtividades codAtividade, int codGrupo, List<CadAtividadesGruposAlunos> alunosGrupo) {
         this.id = id;
         this.codAtividade = codAtividade;
-        this.cod_grupo = cod_grupo;
+        this.codGrupo = codGrupo;
         this.alunosGrupo = alunosGrupo;
+    }
+
+    public CadAtividadesGrupos(CadAtividades codAtividade, int codGrupo) {
+        this.codAtividade = codAtividade;
+        this.codGrupo = codGrupo;
     }
 }

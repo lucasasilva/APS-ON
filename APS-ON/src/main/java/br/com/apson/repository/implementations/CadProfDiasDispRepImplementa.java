@@ -1,11 +1,11 @@
-package br.com.apson.repository;
+package br.com.apson.repository.implementations;
 
 
 import br.com.apson.entities.CadProfDiasDisp;
 import br.com.apson.entities.CadProfessores;
+import br.com.apson.repository.CadProfDiasDispInterface;
 import br.com.apson.util.generics;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CadProfDiasDispRepImplementa implements CadProfDiasDispInterface {

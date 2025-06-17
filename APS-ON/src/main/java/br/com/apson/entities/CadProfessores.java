@@ -11,7 +11,7 @@ public class CadProfessores  extends SuperCadastros {
     @Column (name = "instituicao_trabalho")
     private int institucaoAtuacao;
 
-    @OneToMany(mappedBy = "idProfessor", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "idProfessor", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<CadProfDiasDisp> diasDisponiveis;
 
     public List<CadProfDiasDisp> getDiasDisponiveis() {
@@ -64,5 +64,11 @@ public class CadProfessores  extends SuperCadastros {
         
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString() + "{" +
+                "institucaoAtuacao=" + institucaoAtuacao +
+                ", diasDisponiveis=" + diasDisponiveis +
+                '}';
+    }
 }

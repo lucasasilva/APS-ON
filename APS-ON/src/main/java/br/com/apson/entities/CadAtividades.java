@@ -1,17 +1,17 @@
 package br.com.apson.entities;
 
+import br.com.apson.util.getIDGenerico;
 import jakarta.persistence.*;
-import br.com.apson.util.Enums;
-import org.hibernate.engine.internal.Cascade;
 
+
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 
 @Entity
 @Table (name = "cad_atividades")
-public class CadAtividades {
+public class CadAtividades implements getIDGenerico, Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
@@ -21,7 +21,7 @@ public class CadAtividades {
     private int areaAtuacaoMedica; //depende da cadAreaAtaucaoMedica
     @Column (name = "instituicao_prestacao")
     private int hospitalPrestacao; //depende da CadInstituicoes;
-    @Column (name = "professor_responsável")
+    @Column (name = "professor_responsavel")
     private int professor; //tecnicamente essa bosta pode ser ManyToMany com uma tabela separada, porque um professor por estar em várias atividadese uma atividade pode ter vários professores
     // , mas LeBron James(MVP)
     @Column (name = "qtd_vagas")
@@ -30,15 +30,16 @@ public class CadAtividades {
     private LocalDate dataInicioAtividades;
     @Column (name = "dt_fim")
     private LocalDate dataFimAtividades;
+    //@OneToMany (mappedBy = "codAtividade", cascade = CascadeType.REMOVE)
+    @Column(name = "periodo")
+    private String periodosPermitidos;
 
 
     /* A partir daqui, Deus nos abandonou*/
     @OneToMany (mappedBy = "idAtividade", cascade = CascadeType.REMOVE)
     private List<CadAtividadesHorariosDisponiveis> horariosDisponiveis;
 
-    @OneToMany (mappedBy = "codAtividade", cascade = CascadeType.REMOVE)
-    private List<CadAtividadesPeriodos> periodosPermitidos;
-
+    //grupos
     @OneToMany (mappedBy = "codAtividade", cascade =  CascadeType.REMOVE)
     private List<CadAtividadesGrupos>qtdGruposAlunos;
 
@@ -48,7 +49,20 @@ public class CadAtividades {
     public CadAtividades() {
     }
 
-    public CadAtividades(int id, int tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades, List<CadAtividadesHorariosDisponiveis> horariosDisponiveis, List<CadAtividadesPeriodos> periodosPermitidos, List<CadAtividadesGrupos> qtdGruposAlunos, List<CadAtividadesMesAnoDisp> mesAnoAtividades) {
+    public CadAtividades(int tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades, List<CadAtividadesHorariosDisponiveis> horariosDisponiveis, String periodosPermitidos, List<CadAtividadesGrupos> qtdGruposAlunos) {
+        this.tipoAtividade = tipoAtividade;
+        this.areaAtuacaoMedica = areaAtuacaoMedica;
+        this.hospitalPrestacao = hospitalPrestacao;
+        this.professor = professor;
+        this.quantidadeVagas = quantidadeVagas;
+        this.dataInicioAtividades = dataInicioAtividades;
+        this.dataFimAtividades = dataFimAtividades;
+        this.horariosDisponiveis = horariosDisponiveis;
+        this.periodosPermitidos = periodosPermitidos;
+        this.qtdGruposAlunos = qtdGruposAlunos;
+    }
+
+    public CadAtividades(int id, int tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades, List<CadAtividadesHorariosDisponiveis> horariosDisponiveis, String periodosPermitidos, List<CadAtividadesGrupos> qtdGruposAlunos, List<CadAtividadesMesAnoDisp> mesAnoAtividades) {
         this.id = id;
         this.tipoAtividade = tipoAtividade;
         this.areaAtuacaoMedica = areaAtuacaoMedica;
@@ -63,7 +77,7 @@ public class CadAtividades {
         this.mesAnoAtividades = mesAnoAtividades;
     }
 
-    public CadAtividades(int tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades, List<CadAtividadesHorariosDisponiveis> horariosDisponiveis, List<CadAtividadesPeriodos> periodosPermitidos, List<CadAtividadesGrupos> qtdGruposAlunos, List<CadAtividadesMesAnoDisp> mesAnoAtividades) {
+    public CadAtividades(int tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades, List<CadAtividadesHorariosDisponiveis> horariosDisponiveis, String periodosPermitidos, List<CadAtividadesGrupos> qtdGruposAlunos, List<CadAtividadesMesAnoDisp> mesAnoAtividades) {
         this.tipoAtividade = tipoAtividade;
         this.areaAtuacaoMedica = areaAtuacaoMedica;
         this.hospitalPrestacao = hospitalPrestacao;
@@ -79,7 +93,7 @@ public class CadAtividades {
     /*TODO: Criar construtores sem aceitar as listas de data, grupo, aluno etc. Para permitir gravar a atividade e posterior alteração
     * */
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -151,11 +165,11 @@ public class CadAtividades {
         this.horariosDisponiveis = horariosDisponiveis;
     }
 
-    public List<CadAtividadesPeriodos> getPeriodosPermitidos() {
+    public String getPeriodosPermitidos() {
         return periodosPermitidos;
     }
 
-    public void setPeriodosPermitidos(List<CadAtividadesPeriodos> periodosPermitidos) {
+    public void setPeriodosPermitidos(String periodosPermitidos) {
         this.periodosPermitidos = periodosPermitidos;
     }
 

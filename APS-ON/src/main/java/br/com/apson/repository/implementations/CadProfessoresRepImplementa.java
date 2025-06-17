@@ -1,10 +1,11 @@
-package br.com.apson.repository;
+package br.com.apson.repository.implementations;
 
 import br.com.apson.entities.CadProfessores;
+import br.com.apson.repository.CadProfessoresRepInterface;
 import br.com.apson.util.generics;
 import java.util.List;
 
-public class CadProfessoresRepImplementa implements CadProfessoresRepInterface{
+public class CadProfessoresRepImplementa implements CadProfessoresRepInterface {
 
     /*Perceba, Ivair, que aqui retornamos um int. Por que?
     Porque o int que retornamos é a id criada para o professor,

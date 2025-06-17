@@ -1,6 +1,7 @@
-package br.com.apson.repository;
+package br.com.apson.repository.implementations;
 
 import br.com.apson.entities.CadInstituicoesSaude;
+import br.com.apson.repository.CadInstituicoesSaudeInterface;
 import br.com.apson.util.generics;
 
 import java.util.List;

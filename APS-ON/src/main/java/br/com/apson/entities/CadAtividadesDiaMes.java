@@ -16,4 +16,19 @@ public class CadAtividadesDiaMes {
     @Column (name = "dia_mes")
     private int diaDoMes;
 
+    public CadAtividadesDiaMes() {
+    }
+
+    public CadAtividadesDiaMes(int id, CadAtividadesMesAnoDisp idMesAno, int idAtividade, int diaDoMes) {
+        this.id = id;
+        this.idMesAno = idMesAno;
+        this.idAtividade = idAtividade;
+        this.diaDoMes = diaDoMes;
+    }
+
+    public CadAtividadesDiaMes(CadAtividadesMesAnoDisp idMesAno, int idAtividade, int diaDoMes) {
+        this.idMesAno = idMesAno;
+        this.idAtividade = idAtividade;
+        this.diaDoMes = diaDoMes;
+    }
 }
