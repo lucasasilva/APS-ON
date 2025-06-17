@@ -22,19 +22,19 @@
         <property name="show_sql">false</property> <!-- Show SQL in console -->
         <property name="format_sql">false</property> <!-- Show SQL formatted -->
 
-        <mapping class="br.com.apson.entities.SuperCadastros"/>
-        <mapping class="br.com.apson.entities.CadProfessores"/>
-        <mapping class="br.com.apson.entities.CadProfDiasDisp"/>
-        <mapping class="br.com.apson.entities.AreaAtuacaoMedica"/>
-        <mapping class="br.com.apson.entities.CadInstituicoesSaude"/>
-        <mapping class="br.com.apson.entities.CadAtividades"/>
-        <mapping class="br.com.apson.entities.CadAtividadesHorariosDisponiveis"/>
-        <mapping class="br.com.apson.entities.CadAtividadesPeriodos"/>
-        <mapping class="br.com.apson.entities.CadAtividadesGrupos"/>
-        <mapping class="br.com.apson.entities.CadAtividadesGruposAlunos"/>
-        <mapping class="br.com.apson.entities.CadAtividadesMesAnoDisp"/>
-        <mapping class="br.com.apson.entities.CadAtividadesDiaMes"/>
-        <mapping class="br.com.apson.entities.CadAlunos"/>
+        <mapping class="br.com.apson.model.entities.SuperCadastros"/>
+        <mapping class="br.com.apson.model.entities.CadProfessores"/>
+        <mapping class="br.com.apson.model.entities.CadProfDiasDisp"/>
+        <mapping class="br.com.apson.model.entities.AreaAtuacaoMedica"/>
+        <mapping class="br.com.apson.model.entities.CadInstituicoesSaude"/>
+        <mapping class="br.com.apson.model.entities.CadAtividades"/>
+        <mapping class="br.com.apson.model.entities.CadAtividadesHorariosDisponiveis"/>
+        <mapping class="br.com.apson.model.entities.CadAtividadesPeriodos"/>
+        <mapping class="br.com.apson.model.entities.CadAtividadesGrupos"/>
+        <mapping class="br.com.apson.model.entities.CadAtividadesGruposAlunos"/>
+        <mapping class="br.com.apson.model.entities.CadAtividadesMesAnoDisp"/>
+        <mapping class="br.com.apson.model.entities.CadAtividadesDiaMes"/>
+        <mapping class="br.com.apson.model.entities.CadAlunos"/>
 
     </session-factory>
 </hibernate-configuration>

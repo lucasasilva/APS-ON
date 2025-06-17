@@ -53,7 +53,7 @@
                 <configuration>
                     <url>jdbc:postgresql://localhost:5432/apson</url>
                     <user>postgres</user>
-                    <password>admin</password>
+                    <password>masterkey</password>
                     <schemas>public</schemas>
                     <locations>
                         <location>filesystem:src/main/resources/db/migration</location>

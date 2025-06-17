@@ -1,8 +1,8 @@
 package br.com.apson.services;
 
-import br.com.apson.entities.CadAtividades;
-import br.com.apson.repository.CadAtividadesGruposInterface;
-import br.com.apson.repository.CadAtividadesInterface;
+import br.com.apson.model.entities.CadAtividades;
+import br.com.apson.model.repository.CadAtividadesGruposInterface;
+import br.com.apson.model.repository.CadAtividadesInterface;
 
 import java.util.List;
 

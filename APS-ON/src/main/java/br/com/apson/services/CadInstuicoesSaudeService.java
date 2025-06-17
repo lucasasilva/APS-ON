@@ -1,7 +1,7 @@
 package br.com.apson.services;
 
-import br.com.apson.entities.CadInstituicoesSaude;
-import br.com.apson.repository.CadInstituicoesSaudeInterface;
+import br.com.apson.model.entities.CadInstituicoesSaude;
+import br.com.apson.model.repository.CadInstituicoesSaudeInterface;
 
 import java.util.List;
 

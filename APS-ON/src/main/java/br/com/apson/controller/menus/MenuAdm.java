@@ -2,8 +2,8 @@ package br.com.apson.controller.menus;
 
 import br.com.apson.controller.menus.controladores.AlunoController;
 import br.com.apson.controller.menus.controladores.ProfessorController;
-import br.com.apson.entities.CadAlunos;
-import br.com.apson.entities.CadProfessores;
+import br.com.apson.model.entities.CadAlunos;
+import br.com.apson.model.entities.CadProfessores;
 import br.com.apson.util.Menu;
 
 import java.util.List;

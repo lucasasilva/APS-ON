@@ -1,7 +1,7 @@
 package br.com.apson.services;
 
-import br.com.apson.entities.CadAlunos;
-import br.com.apson.repository.implementations.CadAlunosRepImpInterface;
+import br.com.apson.model.entities.CadAlunos;
+import br.com.apson.model.repository.implementations.CadAlunosRepImpInterface;
 
 import java.util.List;
 

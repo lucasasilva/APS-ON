@@ -1,10 +1,10 @@
-package br.com.apson.controller.menus.controladores;
+ package br.com.apson.controller.menus.controladores;
 
-import br.com.apson.entities.CadInstituicoesSaude;
-import br.com.apson.entities.CadProfDiasDisp;
-import br.com.apson.entities.CadProfessores;
-import br.com.apson.repository.implementations.CadInstituicoesSaudeRepImpInterface;
-import br.com.apson.repository.implementations.CadProfessoresRepImplementa;
+import br.com.apson.model.entities.CadInstituicoesSaude;
+import br.com.apson.model.entities.CadProfDiasDisp;
+import br.com.apson.model.entities.CadProfessores;
+import br.com.apson.model.repository.implementations.CadInstituicoesSaudeRepImpInterface;
+import br.com.apson.model.repository.implementations.CadProfessoresRepImplementa;
 import br.com.apson.services.CadInstuicoesSaudeService;
 import br.com.apson.services.CadProfessoresService;
 

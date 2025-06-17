@@ -1,8 +1,8 @@
 package br.com.apson.services;
 
-import br.com.apson.entities.SuperCadastros;
-import br.com.apson.repository.implementations.SuperCadastrosImplementation;
-import br.com.apson.repository.SuperCadastrosInterface;
+import br.com.apson.model.entities.SuperCadastros;
+import br.com.apson.model.repository.implementations.SuperCadastrosImplementation;
+import br.com.apson.model.repository.SuperCadastrosInterface;
 
 import java.util.List;
 

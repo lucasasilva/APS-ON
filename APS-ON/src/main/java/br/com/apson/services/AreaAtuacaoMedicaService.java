@@ -1,7 +1,7 @@
 package br.com.apson.services;
 
-import br.com.apson.entities.AreaAtuacaoMedica;
-import br.com.apson.repository.AreaAtuacaoMedicaRepInterface;
+import br.com.apson.model.entities.AreaAtuacaoMedica;
+import br.com.apson.model.repository.AreaAtuacaoMedicaRepInterface;
 
 
 import java.util.List;

@@ -1,11 +1,10 @@
 package br.com.apson;
 
-import br.com.apson.entities.CadAtividades;
-import br.com.apson.entities.CadAtividadesGrupos;
-import br.com.apson.entities.CadAtividadesHorariosDisponiveis;
-import br.com.apson.entities.CadAtividadesMesAnoDisp;
-import br.com.apson.repository.implementations.CadAtividadesGruposImplementation;
-import br.com.apson.repository.implementations.CadAtividadesImplementation;
+import br.com.apson.model.entities.CadAtividades;
+import br.com.apson.model.entities.CadAtividadesGrupos;
+import br.com.apson.model.entities.CadAtividadesHorariosDisponiveis;
+import br.com.apson.model.repository.implementations.CadAtividadesGruposImplementation;
+import br.com.apson.model.repository.implementations.CadAtividadesImplementation;
 import br.com.apson.services.CadAtividadesServices;
 
 
@@ -15,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static br.com.apson.controller.LoginController.login;
 
 public class Main {
 
@@ -37,7 +34,7 @@ public class Main {
         grupos.add(new CadAtividadesGrupos(null, 1));
 
 
-        CadAtividades atividade = new CadAtividades(1,1,1,4,60,
+        CadAtividades atividade = new CadAtividades(1,3,3,4,60,
                                     LocalDate.of(2025, 6,16),
                                     LocalDate.of(2025, 6, 30),
                                     horariosDisponiveis,"1,2,3",grupos);

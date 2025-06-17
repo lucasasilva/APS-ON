@@ -1,11 +1,10 @@
 package br.com.apson.controller.menus.controladores;
 
-import br.com.apson.entities.CadAlunos;
-import br.com.apson.repository.implementations.CadAlunosRepImpInterface;
+import br.com.apson.model.entities.CadAlunos;
+import br.com.apson.model.repository.implementations.CadAlunosRepImpInterface;
 import br.com.apson.services.CadAlunosService;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
