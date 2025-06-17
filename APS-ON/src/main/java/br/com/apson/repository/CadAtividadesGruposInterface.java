@@ -6,6 +6,6 @@ import br.com.apson.entities.CadAtividadesGrupos;
 import java.util.List;
 
 public interface CadAtividadesGruposInterface {
-    int insereGrupo(CadAtividades obj);
+    void insereGrupo(CadAtividades obj);
     List<CadAtividadesGrupos> retornaTodosGruspos();
 }

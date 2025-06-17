@@ -8,7 +8,7 @@ public class CadAtividadesPeriodos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
+   // @ManyToOne
     @JoinColumn (name = "cod_atividade")
     private CadAtividades codAtividade;
     @Column (name = "periodo")
