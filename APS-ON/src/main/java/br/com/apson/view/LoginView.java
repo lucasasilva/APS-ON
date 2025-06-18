@@ -1,5 +1,7 @@
 package br.com.apson.view;
 
+import br.com.apson.controller.LoginController;
+
 import javax.swing.*;
 import java.awt.*;
 
