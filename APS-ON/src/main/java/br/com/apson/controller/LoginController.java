@@ -11,11 +11,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LoginController {
-    SuperCadastrosService pessoa;
-    public LoginController(SuperCadastrosService pessoa){
-        this.pessoa = pessoa;
-    }
-    public static String validaLogin(String login, String senha){
+    SuperCadastrosService pessoa = new SuperCadastrosService();
+    public String validaLogin(String login, String senha){
         return pessoa.validaLogin(login, senha);
     }
 }

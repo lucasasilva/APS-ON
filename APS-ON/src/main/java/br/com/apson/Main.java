@@ -6,6 +6,7 @@ import br.com.apson.model.entities.CadAtividadesHorariosDisponiveis;
 import br.com.apson.model.repository.implementations.CadAtividadesGruposImplementation;
 import br.com.apson.model.repository.implementations.CadAtividadesImplementation;
 import br.com.apson.services.CadAtividadesServices;
+import br.com.apson.view.LoginView;
 
 
 import java.time.LocalDate;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static br.com.apson.view.LoginView.login;
+import static br.com.apson.view.LoginView.*;
 
 public class Main {
 
@@ -27,21 +28,8 @@ public class Main {
         Logger.getLogger("org.hibernate.SQL").setLevel(Level.SEVERE);
         Logger.getLogger("org.hibernate.type.descriptor.sql.BasicBinder").setLevel(Level.SEVERE);
 
-//        CadAtividadesServices atividadesServices = new CadAtividadesServices(new CadAtividadesImplementation(), new CadAtividadesGruposImplementation());
-//
-//        List<CadAtividadesHorariosDisponiveis> horariosDisponiveis = new ArrayList<>();
-//        horariosDisponiveis.add(new CadAtividadesHorariosDisponiveis(null, LocalTime.of(6,0)));
-//
-//        List<CadAtividadesGrupos> grupos = new ArrayList<>();
-//        grupos.add(new CadAtividadesGrupos(null, 1));
-//
-//
-//        CadAtividades atividade = new CadAtividades(1,3,3,4,60,
-//                                    LocalDate.of(2025, 6,16),
-//                                    LocalDate.of(2025, 6, 30),
-//                                    horariosDisponiveis,"1,2,3",grupos);
-//        atividadesServices.criarAtividade(atividade);
-        login();
+        LoginView loginView = new LoginView();
+        loginView.login();
     }
 
 }
