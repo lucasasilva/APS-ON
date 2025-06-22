@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
+
+@Deprecated
 public class ProfessorController {
     /*
     * Loop porque essa opção pode ser uma alteração ou criação

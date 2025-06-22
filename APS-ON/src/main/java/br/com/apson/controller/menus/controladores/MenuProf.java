@@ -1,10 +1,10 @@
-package br.com.apson.controller.menus;
+package br.com.apson.controller.menus.controladores;
 
 import br.com.apson.util.Menu;
 
 import java.util.Scanner;
 
-
+@Deprecated
 public class MenuProf {
     public static void menu(){
     Scanner sc = new Scanner(System.in);

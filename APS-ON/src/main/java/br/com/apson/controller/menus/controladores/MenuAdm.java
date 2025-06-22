@@ -1,7 +1,5 @@
-package br.com.apson.controller.menus;
+package br.com.apson.controller.menus.controladores;
 
-import br.com.apson.controller.menus.controladores.AlunoController;
-import br.com.apson.controller.menus.controladores.ProfessorController;
 import br.com.apson.model.entities.CadAlunos;
 import br.com.apson.model.entities.CadProfessores;
 import br.com.apson.util.Menu;
@@ -11,7 +9,7 @@ import java.util.Scanner;
 
 import static br.com.apson.controller.menus.controladores.ProfessorController.*;
 
-
+@Deprecated
 public class MenuAdm {
     public static void menu(){
     Scanner sc = new Scanner(System.in);

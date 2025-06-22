@@ -7,7 +7,7 @@ import br.com.apson.services.CadAlunosService;
 
 import java.util.List;
 import java.util.Scanner;
-
+@Deprecated
 public class AlunoController {
     public static void criaAlteraAluno(){
         Scanner sc = new Scanner(System.in);
