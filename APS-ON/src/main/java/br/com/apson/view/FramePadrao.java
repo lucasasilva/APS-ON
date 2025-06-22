@@ -1,13 +1,19 @@
 package br.com.apson.view;
 
 import br.com.apson.controller.Controller;
+import br.com.apson.model.entities.CadInstituicoesSaude;
+import com.sun.jdi.IntegerValue;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FramePadrao {
     Controller controller = new Controller();
-    private JFrame frame = new JFrame("APS-ON");
+     JFrame frame = new JFrame("APS-ON");
     public JMenuBar menuBar = new JMenuBar();
 
     public JMenu cadastros = new JMenu("Cadastros");
@@ -31,7 +37,7 @@ public class FramePadrao {
 
     public FramePadrao() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         //formulario de cadastro de area de atuação;
         cadastrarArea.addActionListener( area -> {
@@ -94,15 +100,70 @@ public class FramePadrao {
             JInternalFrame cadastrarProfessor = new JInternalFrame("Cadastro de professores", false, true, false);
             cadastrarProfessor.setSize(400, 600);
             cadastrarProfessor.setLocation(600,300);
-            cadastrarProfessor.setLayout(new FlowLayout());
+            cadastrarProfessor.setLayout(new GridLayout(10,2));
+            cadastrarProfessor.add(new JLabel("Nome"));
+            JTextField nomeProfessor = new JTextField(10);
+            cadastrarProfessor.add(nomeProfessor);
+            cadastrarProfessor.add(new JLabel("Email"));
+            JTextField email = new JTextField(10);
+            cadastrarProfessor.add(email);
+            cadastrarProfessor.add(new JLabel("Telefone contato"));
+            JTextField telefone = new JTextField(10);
+            cadastrarProfessor.add(telefone);
+            cadastrarProfessor.add(new JLabel("Login"));
+            JTextField login = new JTextField(10);
+            cadastrarProfessor.add(login);
+            cadastrarProfessor.add(new JLabel("Senha"));
+            JPasswordField senha = new JPasswordField(10);
+            cadastrarProfessor.add(senha);
+            cadastrarProfessor.add(new JLabel("Instituição"));
+            JTextField instituicao = new JTextField(1);
+            instituicao.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if(e.getClickCount()==2){
+                        Integer idSelecionado = caixaSelecaoInstituicoes();
+                        if (idSelecionado !=null){
+                            instituicao.setText(String.valueOf(idSelecionado));
+                        }
+                    }
+                }
+            });
+            cadastrarProfessor.add(instituicao);
+            JCheckBox segunda = new JCheckBox("segunda");
+            JCheckBox terca = new JCheckBox("terca");
+            JCheckBox quarta = new JCheckBox("quarta");
+            JCheckBox quinta = new JCheckBox("quinta");
+            JCheckBox sexta = new JCheckBox("sexta");
+            cadastrarProfessor.add(segunda); cadastrarProfessor.add(terca);cadastrarProfessor.add(quarta);cadastrarProfessor.add(quinta); cadastrarProfessor.add(sexta);
+            JButton salvar = new JButton("Salvar");
+            salvar.addActionListener(cadProf->{
+                try {
+                    controller.cadastrarProfessor(String.valueOf(nomeProfessor.getText()),
+                            String.valueOf(email.getText()),
+                            String.valueOf(telefone.getText()),
+                            String.valueOf(login.getText()),
+                            String.valueOf(senha.getPassword()),
+                            Integer.parseInt(instituicao.getText()),
+                            diasDisponiveis(segunda, terca, quarta, quinta, sexta));
+                    JOptionPane.showMessageDialog(cadastrarProfessor, "Professor cadastrado");
+                    cadastrarProfessor.dispose();
+                }catch (IllegalArgumentException ex){
+                    JOptionPane.showMessageDialog(cadastrarProfessor, ex.getMessage(), "Erro ao salvar", JOptionPane.ERROR_MESSAGE);
+                }
 
-
+            });
+            cadastrarProfessor.add(salvar);
+            cadastrarProfessor.setVisible(true);
+            desktopPane.add(cadastrarProfessor);
         });
 
         professores.add(cadastrarProfessor);
-        alunos.add(cadastrarAlunos);
-
         cadastros.add(professores);
+
+        //Alunos
+
+        alunos.add(cadastrarAlunos);
         cadastros.add(alunos);
 
         atividades.add(cadastrarAtividade);
@@ -114,4 +175,59 @@ public class FramePadrao {
         frame.add(desktopPane);
         frame.setVisible(true);
     }
+    //transforma as checkbox selecionadas em lista para ser instanciado posteriormente como um array de objetos para gravar o professor;
+    //EU NÃO AGUEEEEEEEENTO MAAAAAAAAAAAAAAAAAAAAAAAAIIIIS
+    public List<String> diasDisponiveis(JCheckBox segunda, JCheckBox terca, JCheckBox quarta, JCheckBox quinta, JCheckBox sexta){
+        List<String> diasSemana= new ArrayList<String>();
+        if (segunda.isSelected()){
+            diasSemana.add("1");
+        }
+        if(terca.isSelected()){
+            diasSemana.add("2");
+        }
+        if (quarta.isSelected()){
+            diasSemana.add("3");
+        }
+        if (quinta.isSelected()){
+            diasSemana.add("4");
+        }
+        if (sexta.isSelected()){
+            diasSemana.add("5");
+        }
+        return diasSemana;
+    }
+
+    //caixa de seleção de instituições
+    Integer caixaSelecaoInstituicoes (){
+        JDialog caixaSeleca = new JDialog((Frame) null, "Instiuições Cadastradas", true);
+        caixaSeleca.setLocation(600,300);
+        caixaSeleca.setSize(300, 400);
+        List<CadInstituicoesSaude> instituicoesSaudes = controller.retornaTodasInstituicoes();
+
+        String[] coluna = {"ID", "Nome"};
+        String [][] dados = new String[instituicoesSaudes.size()][2];
+
+        for(int i=0; i<instituicoesSaudes.size(); i++){
+            dados[i][0] = String.valueOf(instituicoesSaudes.get(i).getId());
+            dados[i][1] = String.valueOf(instituicoesSaudes.get(i).getNome());
+        }
+        JTable tabela = new JTable(dados, coluna);
+        JScrollPane painel = new JScrollPane(tabela);
+        caixaSeleca.add(painel);
+        Integer[] idInstClicada = {null};
+        tabela.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 1){
+                    int linha = tabela.getSelectedRow();
+                    idInstClicada[0] = Integer.parseInt((String)tabela.getValueAt(linha, 0));
+                    caixaSeleca.dispose();
+                }
+            }
+        });
+        caixaSeleca.setVisible(true);
+        return idInstClicada[0];
+    }
+
+    //caixa de seleção de áreas de atuação;
 }
