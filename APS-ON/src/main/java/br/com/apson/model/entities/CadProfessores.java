@@ -33,30 +33,11 @@ public class CadProfessores  extends SuperCadastros {
         this.institucaoAtuacao = institucaoAtuacao;
     }
 
-    public CadProfessores(String nome, String login, String senha, int institucaoAtuacao, List<CadProfDiasDisp> diasDisponiveis){
-        super(nome, login, senha);
-        this.institucaoAtuacao = institucaoAtuacao;
-        this.diasDisponiveis = diasDisponiveis;
-    }
 
-    public CadProfessores(String login, String senha, int institucaoAtuacao) {
-        super(login, senha);
+    public CadProfessores(String nome,  String telefone,String email, String login, String senha,  int institucaoAtuacao, List<CadProfDiasDisp> cadProfDiasDisps){
+        super(nome, email,telefone, login, senha );
         this.institucaoAtuacao = institucaoAtuacao;
-    }
-
-    public CadProfessores(String nome, int id, String senha, String login, String email, int institucaoAtuacao) {
-        super(nome, id, senha, login, email);
-        this.institucaoAtuacao = institucaoAtuacao;
-    }
-
-    public CadProfessores(long id, String telefoneContato, String emailContato, String login, String senha, String nome, String tipo, int institucaoAtuacao) {
-        super(id, telefoneContato, emailContato, login, senha, nome, tipo);
-        this.institucaoAtuacao = institucaoAtuacao;
-    }
-
-    public CadProfessores(long id, String nome, String emailContato, int institucaoAtuacao) {
-        super(id, nome, emailContato);
-        this.institucaoAtuacao = institucaoAtuacao;
+        this.diasDisponiveis = cadProfDiasDisps;
     }
 
     public CadProfessores(){

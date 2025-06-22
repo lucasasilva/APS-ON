@@ -10,3 +10,5 @@ constraint fk_ativ_grupo_atividades FOREIGN KEY (COD_ATIVIDADE) REFERENCES CAD_A
 DROP TABLE CAD_ATIV_PERIODOS;
 
 alter table cad_pessoas add tipo varchar(3);
+
+insert into cad_pessoas (nome, login, senha, tipo) values ('admin', 'admin','admin','S');
