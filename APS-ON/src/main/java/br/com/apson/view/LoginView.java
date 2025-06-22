@@ -8,18 +8,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowListener;
 
-public class LoginView implements ActionListener {
+public class LoginView implements ActionListener, LoginInterface{
     LoginController loginController = new LoginController();
-
-    public LoginView() {
-    }
-
+    private final AlunoView alunoView = new AlunoView();
+    private final AdmView admView = new AdmView();
+    private  final ProfessorView professorView = new ProfessorView();
 
     private final JFrame frameLogin = new JFrame("APS-ON");
     private final JTextField loginInput = new JTextField(10);
     private final JTextField senhaInput = new JPasswordField(10);
 
-
+    @Override
     public void login() {
         frameLogin.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frameLogin.setSize(400, 100);
@@ -53,13 +52,13 @@ public class LoginView implements ActionListener {
         if (tipoLogin == null) {
             JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
         } else if (tipoLogin.equalsIgnoreCase("s")) {
-            AdmView.admView();
+            admView.admView();
             frameLogin.dispose();
         } else if (tipoLogin.equalsIgnoreCase("p")) {
-            ProfessorView.professorView();
+            professorView.professorView();
             frameLogin.dispose();
         } else if (tipoLogin.equalsIgnoreCase("a")) {
-            AlunoView.alunoView();
+            alunoView.alunoView();
             frameLogin.dispose();
         }
     }

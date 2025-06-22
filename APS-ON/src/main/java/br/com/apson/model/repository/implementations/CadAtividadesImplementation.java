@@ -8,8 +8,8 @@ import java.util.List;
 
 public class CadAtividadesImplementation implements CadAtividadesInterface {
     @Override
-    public int criarAtividade(CadAtividades obj) {
-        return generics.insertBancoRetornaID(obj);
+    public void criarAtividade(CadAtividades obj) {
+        generics.insertBancoRetornaID(obj);
     }
 
     @Override
