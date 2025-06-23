@@ -29,6 +29,11 @@ public class CadAlunos extends SuperCadastros {
         this.periodo = periodo;
     }
 
+    public CadAlunos(String nome, String email, String telefoneContato, String login, String senha, int ra, int periodo) {
+        super(nome, email, telefoneContato, login, senha);
+        this.ra = ra;
+        this.periodo = periodo;
+    }
 
     // Getters e Setters
     public int getRa() {

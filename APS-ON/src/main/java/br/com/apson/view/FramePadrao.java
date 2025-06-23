@@ -10,6 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FramePadrao {
     Controller controller = new Controller();
@@ -151,17 +152,64 @@ public class FramePadrao {
                 }catch (IllegalArgumentException ex){
                     JOptionPane.showMessageDialog(cadastrarProfessor, ex.getMessage(), "Erro ao salvar", JOptionPane.ERROR_MESSAGE);
                 }
-
             });
             cadastrarProfessor.add(salvar);
             cadastrarProfessor.setVisible(true);
             desktopPane.add(cadastrarProfessor);
         });
-
         professores.add(cadastrarProfessor);
         cadastros.add(professores);
 
         //Alunos
+        cadastrarAlunos.addActionListener(e->{
+            JInternalFrame cadastrarAluno = new JInternalFrame("Cadastro de Alunos", false, true, false);
+            cadastrarAluno.setSize(400, 600);
+            cadastrarAluno.setLocation(300,600);
+            cadastrarAluno.setLayout(new GridLayout(10,2));
+
+            cadastrarAluno.add(new JLabel("nome"));
+            JTextField nome = new JTextField(10);
+            cadastrarAluno.add(nome);
+            cadastrarAluno.add(new JLabel("Telefone contato"));
+            JTextField telefoneContato = new JTextField(10);
+            cadastrarAluno.add(telefoneContato);
+            cadastrarAluno.add(new JLabel("email"));
+            JTextField email = new JTextField(10);
+            cadastrarAluno.add(email);
+            cadastrarAluno.add(new JLabel("login"));
+            JTextField login = new JTextField(10);
+            cadastrarAluno.add(login);
+            cadastrarAluno.add(new JLabel("Senha"));
+            JTextField senha = new JTextField(10);
+            cadastrarAluno.add(senha);
+            cadastrarAluno.add(new JLabel("RA"));
+            JTextField ra = new JTextField(10);
+            cadastrarAluno.add(ra);
+            cadastrarAluno.add(new JLabel("periodo"));
+            Integer[] periodoLista = {1,2,3,4,5,6,7,8};
+            JComboBox<Integer> periodo = new JComboBox<>(periodoLista);
+            cadastrarAluno.add(periodo);
+            JButton salvar = new JButton("Salvar");
+            salvar.addActionListener(evt-> {
+                try {
+                    controller.cadastrarAluno(String.valueOf(nome.getText()),
+                            String.valueOf(telefoneContato.getText()),
+                            String.valueOf(email.getText()),
+                            String.valueOf(login.getText()),
+                            String.valueOf(senha.getText()),
+                            Integer.parseInt(ra.getText()),
+                            Integer.valueOf(String.valueOf(periodo.getSelectedItem())));
+                    JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso");
+                    cadastrarAluno.dispose();
+                } catch (IllegalArgumentException ex){
+                    JOptionPane.showMessageDialog(cadastrarAluno, ex.getMessage(), "Erro ao Salvar", JOptionPane.ERROR_MESSAGE);
+                }
+            });
+            cadastrarAluno.add(salvar);
+            cadastrarAluno.setVisible(true);
+            desktopPane.add(cadastrarAluno);
+
+        });
 
         alunos.add(cadastrarAlunos);
         cadastros.add(alunos);

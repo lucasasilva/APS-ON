@@ -1,15 +1,9 @@
 package br.com.apson.controller;
 
-import br.com.apson.model.entities.AreaAtuacaoMedica;
-import br.com.apson.model.entities.CadInstituicoesSaude;
-import br.com.apson.model.entities.CadProfDiasDisp;
-import br.com.apson.model.entities.CadProfessores;
+import br.com.apson.model.entities.*;
 import br.com.apson.model.repository.*;
 import br.com.apson.model.repository.implementations.*;
-import br.com.apson.services.AreaAtuacaoMedicaService;
-import br.com.apson.services.CadAtividadesServices;
-import br.com.apson.services.CadInstuicoesSaudeService;
-import br.com.apson.services.CadProfessoresService;
+import br.com.apson.services.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +13,7 @@ public class Controller {
     AreaAtuacaoMedicaService areaAtuacaoMedicaService;
     CadProfessoresService professoresService;
     CadAtividadesServices atividadesServices;
+    CadAlunosService alunosService;
 
     public Controller(){
         CadInstituicoesSaudeInterface instituicaoSauderepo = new CadInstituicoesSaudeRepImpInterface();
@@ -30,17 +25,18 @@ public class Controller {
         CadProfessoresRepInterface profRepo = new CadProfessoresRepImplementa();
         this.professoresService = new CadProfessoresService(profRepo);
 
+        CadAlunosRepInterface alunosRepInterface = new CadAlunosImplementation();
+        this.alunosService = new CadAlunosService(alunosRepInterface);
+
         CadAtividadesInterface atividadesInterface = new CadAtividadesImplementation();
         this.atividadesServices = new CadAtividadesServices(atividadesInterface, new CadAtividadesGruposImplementation ());
     }
 
     public void cadastrarAreaAtuacao(String  nome){
-        AreaAtuacaoMedica obj = new AreaAtuacaoMedica(nome);
-        areaAtuacaoMedicaService.criarAreaAtuacao(obj);
+        areaAtuacaoMedicaService.criarAreaAtuacao(new AreaAtuacaoMedica(nome));
     }
     public void cadastrarInstituicao (String nome){
-        CadInstituicoesSaude obj = new CadInstituicoesSaude(nome);
-        instuicoesSaudeService.criarInstituicao(obj);
+        instuicoesSaudeService.criarInstituicao(new CadInstituicoesSaude(nome));
     }
 
     public List<CadInstituicoesSaude> retornaTodasInstituicoes() {
@@ -52,7 +48,9 @@ public class Controller {
         for (String dia : diasDisp){
             diasDisponiveis.add(new CadProfDiasDisp(Integer.parseInt(dia)));
         }
-        CadProfessores novoProfessor =  new CadProfessores(nome,telefoneContato, email, login, senha, instituicao,diasDisponiveis);
-        professoresService.criarProfessor(novoProfessor);
+        professoresService.criarProfessor(new CadProfessores(nome,telefoneContato, email, login, senha, instituicao,diasDisponiveis));
+    }
+    public void cadastrarAluno(String nome, String email, String telefoneContato, String login, String senha, Integer ra, Integer periodo){
+        alunosService.criarAluno(new CadAlunos(nome, email,telefoneContato, login, senha, ra, periodo));
     }
 }

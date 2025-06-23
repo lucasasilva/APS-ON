@@ -1,7 +1,7 @@
 package br.com.apson.controller.menus.controladores;
 
 import br.com.apson.model.entities.CadAlunos;
-import br.com.apson.model.repository.implementations.CadAlunosRepImpInterface;
+import br.com.apson.model.repository.implementations.CadAlunosImplementation;
 import br.com.apson.services.CadAlunosService;
 
 
@@ -38,7 +38,7 @@ public class AlunoController {
 
 
     private static void manutencaoCadAluno(int opcao, Integer codAluno){
-        CadAlunosService aluno = new CadAlunosService(new CadAlunosRepImpInterface()) ;
+        CadAlunosService aluno = new CadAlunosService(new CadAlunosImplementation()) ;
         Scanner sc = new Scanner(System.in);
         CadAlunos novoAluno= new CadAlunos();
         System.out.println("Informe o nome");
@@ -65,11 +65,11 @@ public class AlunoController {
     }
 
     public static List<CadAlunos> retornaTodosOsAlunos(){
-        CadAlunosService alunos = new CadAlunosService(new CadAlunosRepImpInterface());
+        CadAlunosService alunos = new CadAlunosService(new CadAlunosImplementation());
         return alunos.retornaTodosOsAlunos();
     }
     public static CadAlunos retornaAlunoByID(int id){
-        CadAlunosService alunosService = new CadAlunosService(new CadAlunosRepImpInterface());
+        CadAlunosService alunosService = new CadAlunosService(new CadAlunosImplementation());
         return  alunosService.retornaAlunoPorID(id);
     }
     public static void deletarAluno(int codAluno){

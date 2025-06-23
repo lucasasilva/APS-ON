@@ -1,15 +1,16 @@
 package br.com.apson.services;
 
 import br.com.apson.model.entities.CadAlunos;
-import br.com.apson.model.repository.implementations.CadAlunosRepImpInterface;
+import br.com.apson.model.repository.CadAlunosRepInterface;
+import br.com.apson.model.repository.implementations.CadAlunosImplementation;
 
 import java.util.List;
 
 public class CadAlunosService {
-    CadAlunosRepImpInterface cadAlunosRepImpInterface;
+    CadAlunosRepInterface cadAlunosImplementation;
 
-    public CadAlunosService(CadAlunosRepImpInterface cadAlunosRepImpInterface) {
-        this.cadAlunosRepImpInterface = cadAlunosRepImpInterface;
+    public CadAlunosService(CadAlunosRepInterface cadAlunosImplementation) {
+        this.cadAlunosImplementation = cadAlunosImplementation;
     }
     public void criarAluno(CadAlunos obj){
         obj.setTipo("A");
@@ -30,7 +31,7 @@ public class CadAlunosService {
         if(obj.getPeriodo()==0){
             throw new IllegalArgumentException("Periodo não pode estar vazio");
         }
-        cadAlunosRepImpInterface.criarAluno(obj);
+        cadAlunosImplementation.criarAluno(obj);
     }
 
 
@@ -53,13 +54,13 @@ public class CadAlunosService {
         if(obj.getPeriodo()==0){
             throw new IllegalArgumentException("Periodo não pode estar vazio");
         }
-        cadAlunosRepImpInterface.alterarAluno(obj);
+        cadAlunosImplementation.alterarAluno(obj);
     }
     public CadAlunos retornaAlunoPorID(int id){
-        return cadAlunosRepImpInterface.retornaAlunoPorID(id);
+        return cadAlunosImplementation.retornaAlunoPorID(id);
     }
     public List<CadAlunos> retornaTodosOsAlunos(){
-        return cadAlunosRepImpInterface.retornaAlunos();
+        return cadAlunosImplementation.retornaAlunos();
     }
 }
 
