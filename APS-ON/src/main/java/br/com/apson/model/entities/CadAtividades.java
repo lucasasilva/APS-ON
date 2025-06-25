@@ -16,7 +16,7 @@ public class CadAtividades implements getIDGenerico, Serializable {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     @Column (name = "tipo_atividade")
-    private int tipoAtividade;//APS ou EPS
+    private String tipoAtividade;//APS ou EPS
     @Column (name = "area_atuacao_medica")
     private int areaAtuacaoMedica; //depende da cadAreaAtaucaoMedica
     @Column (name = "instituicao_prestacao")
@@ -54,7 +54,7 @@ public class CadAtividades implements getIDGenerico, Serializable {
         return "";
     }
 
-    public CadAtividades(int tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades, List<CadAtividadesHorariosDisponiveis> horariosDisponiveis, String periodosPermitidos, List<CadAtividadesGrupos> qtdGruposAlunos) {
+    public CadAtividades(String tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades,String periodos, List<CadAtividadesGrupos> qtdGruposAlunos) {
         this.tipoAtividade = tipoAtividade;
         this.areaAtuacaoMedica = areaAtuacaoMedica;
         this.hospitalPrestacao = hospitalPrestacao;
@@ -62,12 +62,11 @@ public class CadAtividades implements getIDGenerico, Serializable {
         this.quantidadeVagas = quantidadeVagas;
         this.dataInicioAtividades = dataInicioAtividades;
         this.dataFimAtividades = dataFimAtividades;
-        this.horariosDisponiveis = horariosDisponiveis;
-        this.periodosPermitidos = periodosPermitidos;
+        this.periodosPermitidos = periodos;
         this.qtdGruposAlunos = qtdGruposAlunos;
     }
 
-    public CadAtividades(int id, int tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades, List<CadAtividadesHorariosDisponiveis> horariosDisponiveis, String periodosPermitidos, List<CadAtividadesGrupos> qtdGruposAlunos, List<CadAtividadesMesAnoDisp> mesAnoAtividades) {
+    public CadAtividades(int id, String tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades, String periodosPermitidos, List<CadAtividadesHorariosDisponiveis> horariosDisponiveis, List<CadAtividadesGrupos> qtdGruposAlunos, List<CadAtividadesMesAnoDisp> mesAnoAtividades) {
         this.id = id;
         this.tipoAtividade = tipoAtividade;
         this.areaAtuacaoMedica = areaAtuacaoMedica;
@@ -76,25 +75,12 @@ public class CadAtividades implements getIDGenerico, Serializable {
         this.quantidadeVagas = quantidadeVagas;
         this.dataInicioAtividades = dataInicioAtividades;
         this.dataFimAtividades = dataFimAtividades;
-        this.horariosDisponiveis = horariosDisponiveis;
         this.periodosPermitidos = periodosPermitidos;
+        this.horariosDisponiveis = horariosDisponiveis;
         this.qtdGruposAlunos = qtdGruposAlunos;
         this.mesAnoAtividades = mesAnoAtividades;
     }
 
-    public CadAtividades(int tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades, List<CadAtividadesHorariosDisponiveis> horariosDisponiveis, String periodosPermitidos, List<CadAtividadesGrupos> qtdGruposAlunos, List<CadAtividadesMesAnoDisp> mesAnoAtividades) {
-        this.tipoAtividade = tipoAtividade;
-        this.areaAtuacaoMedica = areaAtuacaoMedica;
-        this.hospitalPrestacao = hospitalPrestacao;
-        this.professor = professor;
-        this.quantidadeVagas = quantidadeVagas;
-        this.dataInicioAtividades = dataInicioAtividades;
-        this.dataFimAtividades = dataFimAtividades;
-        this.horariosDisponiveis = horariosDisponiveis;
-        this.periodosPermitidos = periodosPermitidos;
-        this.qtdGruposAlunos = qtdGruposAlunos;
-        this.mesAnoAtividades = mesAnoAtividades;
-    }
     /*TODO: Criar construtores sem aceitar as listas de data, grupo, aluno etc. Para permitir gravar a atividade e posterior alteração
     * */
 
@@ -106,11 +92,11 @@ public class CadAtividades implements getIDGenerico, Serializable {
         this.id = id;
     }
 
-    public int getTipoAtividade() {
+    public String getTipoAtividade() {
         return tipoAtividade;
     }
 
-    public void setTipoAtividade(int tipoAtividade) {
+    public void setTipoAtividade(String tipoAtividade) {
         this.tipoAtividade = tipoAtividade;
     }
 

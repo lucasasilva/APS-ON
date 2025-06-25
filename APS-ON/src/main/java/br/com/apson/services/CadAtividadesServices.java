@@ -17,14 +17,10 @@ public class CadAtividadesServices {
     }
 
     //implementar o restante das validações, ou não, porque com spring isso aqui fica bem mais fácil
-    public void criarAtividade(CadAtividades atividade){
-        if((atividade.getTipoAtividade()!= 1 && atividade.getTipoAtividade()!=2)){
-            throw new IllegalArgumentException("tipo de atividade não permitido/não cadastrado");
-        }
+    public void criarAtividade(CadAtividades atividade, int qtdVagas, int qtdVagasSobrando){
+       cadAtividadesInterface.criarAtividade(atividade);
 
-        cadAtividadesInterface.criarAtividade(atividade);
-
-        cadAtividadesGruposInterface.insereGrupo(atividade);
+        cadAtividadesGruposInterface.insereGrupo(atividade, qtdVagas, qtdVagasSobrando);
     }
 
     public void alterarAtividade(CadAtividades atividades){
@@ -34,6 +30,7 @@ public class CadAtividadesServices {
     public List<CadAtividades> retornaTodasAtividades(){
         return cadAtividadesInterface.retornaTodasAsAtividade();
     }
+
     public  void deleteAtividade(Long id){
         cadAtividadesInterface.deletaAtividade(id);
     }

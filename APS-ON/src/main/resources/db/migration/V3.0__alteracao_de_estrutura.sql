@@ -1,5 +1,5 @@
 alter table cad_atividades
-add periodo varchar(10);
+add periodo varchar(50);
 
 DROP TABLE CAD_ATIV_PERIODOS;
 

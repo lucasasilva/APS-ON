@@ -14,6 +14,10 @@ public class CadAtividadesGrupos implements getIDGenerico {
     @ManyToOne
     @JoinColumn(name = "cod_atividade")
     private CadAtividades codAtividade;
+    @Column(name = "qtd_vagas")
+    private int qtdVagas;
+    @Column(name = "qtd_vagas_sobrando")
+    private int qtdVagasSobrando;
 
     @Column (name = "cod_grupo")
     private int codGrupo;
@@ -74,8 +78,10 @@ public class CadAtividadesGrupos implements getIDGenerico {
         this.alunosGrupo = alunosGrupo;
     }
 
-    public CadAtividadesGrupos(CadAtividades codAtividade, int codGrupo) {
+    public CadAtividadesGrupos(CadAtividades codAtividade, int codGrupo, int qtdVagas, int qtdVagasSobrando) {
         this.codAtividade = codAtividade;
         this.codGrupo = codGrupo;
+        this.qtdVagas = qtdVagas;
+        this.qtdVagasSobrando = qtdVagasSobrando;
     }
 }

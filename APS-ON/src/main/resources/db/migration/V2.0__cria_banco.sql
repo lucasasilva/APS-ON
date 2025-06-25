@@ -63,6 +63,8 @@ create table cad_atividades_grupos(
 id SERIAL,
 cod_atividade integer,
 cod_grupo integer,
+QTD_VAGAS INTEGER,
+QTD_VAGAS_SOBRANDO INTEGER,
 CONSTRAINT PK_CAD_ATIVIDADES_GRUPOS PRIMARY KEY (ID),
 constraint fk_ativ_grupo_atividades FOREIGN KEY (COD_ATIVIDADE) REFERENCES CAD_ATIVIDADES(ID) ON DELETE CASCADE
 );
@@ -72,8 +74,6 @@ CREATE TABLE cad_ativ_grupo_alunos (
                                        COD_GRUPO INTEGER,
                                        cod_atividade INTEGER,
                                        codigo_aluno INTEGER,
-                                       QTD_VAGAS INTEGER,
-                                       QTD_VAGAS_SOBRANDO INTEGER,
                                        CONSTRAINT pk_cad_ativ_grupo_alunos PRIMARY KEY (id),
                                        CONSTRAINT fk_cod_atividade_grupos FOREIGN KEY (cod_atividade) REFERENCES cad_atividades (id) ON DELETE CASCADE,
                                        CONSTRAINT FK_GRUPO_ALUNO FOREIGN KEY(COD_GRUPO) REFERENCES CAD_ATIVIDADES_GRUPOS (ID) ON DELETE CASCADE,

@@ -5,6 +5,7 @@ import br.com.apson.model.repository.*;
 import br.com.apson.model.repository.implementations.*;
 import br.com.apson.services.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class Controller {
         this.atividadesServices = new CadAtividadesServices(atividadesInterface, new CadAtividadesGruposImplementation ());
     }
 
+    //area atuacao
     public void cadastrarAreaAtuacao(String  nome){
         areaAtuacaoMedicaService.criarAreaAtuacao(new AreaAtuacaoMedica(nome));
     }
@@ -43,6 +45,7 @@ public class Controller {
         return areaAtuacaoMedicaService.retornaTodasAreasAtuacao();
     }
 
+    //instituicao
     public void cadastrarInstituicao (String nome){
         instuicoesSaudeService.criarInstituicao(new CadInstituicoesSaude(nome));
     }
@@ -53,6 +56,7 @@ public class Controller {
         return instuicoesSaudeService.retornaTodasInstituicoes();
     }
 
+    //professor e aluno são filhos da cad_pessoas, que faz cascade;
     public void deletarProfessorAluno(Long id){
         pessoa.deletePessoa(id);
     }
@@ -74,4 +78,18 @@ public class Controller {
     public List<CadAlunos> retornaTodosAlunos(){
         return alunosService.retornaTodosOsAlunos();
     }
+
+
+    //atividades
+    public void criarAtividade (String tipoAtividade, int areaAtuacao, Integer hospitalPrestaco, Integer professor, Integer qtdVagas,Integer qtdGrupos, LocalDate dataInicio, LocalDate dataFim, String periodos){
+            int qtdVagasGrupo = qtdVagas/qtdGrupos;
+            List<CadAtividadesGrupos> grupos = new ArrayList<>();
+            for (int i =1; i<=qtdGrupos; i++){
+                //Na inserção, usamos a quantidade de grupos para criar um "codigo de grupo" e o saldo de vagas sempre  será igual a quantidade de vagas disponíveis
+                //para cada grupo durante a inserção;
+                grupos.add(new CadAtividadesGrupos(null,i,qtdVagasGrupo, qtdVagasGrupo));
+            }
+            atividadesServices.criarAtividade(new CadAtividades(tipoAtividade,areaAtuacao,hospitalPrestaco,professor,qtdVagas,dataInicio,dataFim, periodos, grupos ), qtdVagas, qtdVagas);
+    }
+
 }

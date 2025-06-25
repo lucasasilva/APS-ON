@@ -9,9 +9,9 @@ import java.util.List;
 
 public class CadAtividadesGruposImplementation implements CadAtividadesGruposInterface {
     @Override
-    public void insereGrupo(CadAtividades obj) {
+    public void insereGrupo(CadAtividades obj, int qtdVagas, int qtdVagasSobrando) {
         for (CadAtividadesGrupos i : obj.getQtdGruposAlunos()) {
-            CadAtividadesGrupos grupo = new CadAtividadesGrupos(obj, i.getCodGrupo());
+            CadAtividadesGrupos grupo = new CadAtividadesGrupos(obj, i.getCodGrupo(), qtdVagas, qtdVagasSobrando);
             generics.insertBanco(grupo);
         }
     }

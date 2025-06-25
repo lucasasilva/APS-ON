@@ -1,11 +1,13 @@
 package br.com.apson.view;
 
 import br.com.apson.controller.Controller;
+import  br.com.apson.view.CaixaSelecaoInternas;
 import br.com.apson.model.entities.AreaAtuacaoMedica;
 import br.com.apson.model.entities.CadInstituicoesSaude;
 import br.com.apson.util.getIDGenerico;
 import com.sun.jdi.IntegerValue;
 import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +17,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static br.com.apson.view.CaixaSelecaoInternas.caixaSelecao;
 
 public class FramePadrao {
     Controller controller = new Controller();
@@ -39,6 +43,7 @@ public class FramePadrao {
 
      final JDesktopPane desktopPane = new JDesktopPane();
     private  final JDesktopPane instAtu = new JDesktopPane();
+    private AtividadesView atividadesView = new AtividadesView();
 
     public FramePadrao() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -218,6 +223,11 @@ public class FramePadrao {
         alunos.add(cadastrarAlunos);
         cadastros.add(alunos);
 
+        //atividades
+        cadastrarAtividade.addActionListener(e->{
+            desktopPane.add(atividadesView.atividades());
+        });
+
         atividades.add(cadastrarAtividade);
         menuBar.add(cadastros);
         menuBar.add(atividades);
@@ -247,52 +257,6 @@ public class FramePadrao {
             diasSemana.add("5");
         }
         return diasSemana;
-    }
-
-    /*Função da caixa de seleção de cadastros
-    Feito dessa forma para não ter que criar uma função para cada uma das telas;
-    Como a gente só precisa do nome e do ID na maioria das vezes, a interface genérica é implementada
-    e o valor da lista herda essa interface, ganhando acesso aos métodos que precisamos, independente da
-    classe que está sendo retornada =D
-    * */
-    public Integer caixaSelecao(int valorLista){
-        JDialog caixaSeleca= new JDialog((Frame) null, "Cadastros", true);
-        caixaSeleca.setLocation(600,300);
-        caixaSeleca.setSize(300, 400);
-        List<? extends getIDGenerico> listaDeCadastros = new ArrayList<>();
-        if (valorLista ==1){
-            listaDeCadastros = controller.retornaTodasInstituicoes();
-        }
-        if(valorLista ==2){
-            listaDeCadastros = controller.retornaTodasAreas();
-        }
-        if (valorLista ==3){
-            listaDeCadastros = controller.retornaTodosProfessores();
-        }
-
-        String[] coluna = {"ID", "Nome"};
-        String [][] dados = new String[listaDeCadastros.size()][2];
-
-        for(int i=0; i<listaDeCadastros.size(); i++){
-            dados[i][0] = String.valueOf(listaDeCadastros.get(i).getId());
-            dados[i][1] = String.valueOf(listaDeCadastros.get(i).getNome());
-        }
-        JTable tabela = new JTable(dados, coluna);
-        JScrollPane painel = new JScrollPane(tabela);
-        caixaSeleca.add(painel);
-        Integer[] idInstClicada = {null};
-        tabela.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 1){
-                    int linha = tabela.getSelectedRow();
-                    idInstClicada[0] = Integer.parseInt((String)tabela.getValueAt(linha, 0));
-                    caixaSeleca.dispose();
-                }
-            }
-        });
-        caixaSeleca.setVisible(true);
-        return idInstClicada[0];
     }
 
 }

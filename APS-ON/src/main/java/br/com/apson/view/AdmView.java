@@ -8,6 +8,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.function.Consumer;
 
+import static br.com.apson.view.CaixaSelecaoInternas.caixaSelecao;
+
 //Por que colocar aqui? Porque só o ADM pode excluir cadastro;
 public class AdmView {
     Controller controller = new Controller();
@@ -31,8 +33,6 @@ public class AdmView {
     }
 
     /**
-     * Método genérico para criar janelas de exclusão
-     *
      *  framePadrao Referência ao frame principal
      *  menu O JMenu ao qual adicionar o item(area atuacao, cadastro de alino, de professor ou de instituição)
      *  Título do item e da janela
@@ -54,7 +54,7 @@ public class AdmView {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (e.getClickCount() == 2) {
-                        Integer idSeleciona = framePadrao.caixaSelecao(tipo);
+                        Integer idSeleciona = caixaSelecao(tipo);
                         if (idSeleciona != null) {
                             campo.setText(String.valueOf(idSeleciona));
                         }
