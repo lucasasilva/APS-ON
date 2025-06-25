@@ -1,13 +1,17 @@
 package br.com.apson.view;
 
 import br.com.apson.controller.Controller;
+import br.com.apson.model.entities.AreaAtuacaoMedica;
 import br.com.apson.model.entities.CadInstituicoesSaude;
+import br.com.apson.util.getIDGenerico;
 import com.sun.jdi.IntegerValue;
+import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -33,14 +37,14 @@ public class FramePadrao {
 
     JMenuItem cadastrarAtividade= new JMenuItem("Cadastrar atividade");
 
-    private final JDesktopPane desktopPane = new JDesktopPane();
+     final JDesktopPane desktopPane = new JDesktopPane();
     private  final JDesktopPane instAtu = new JDesktopPane();
 
     public FramePadrao() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        //formulario de cadastro de area de atuação;
+        //Area de atuação;
         cadastrarArea.addActionListener( area -> {
             JInternalFrame cadastrarArea = new JInternalFrame("Cadastrar area", false, true, false);
             cadastrarArea.setSize(200, 100);
@@ -122,8 +126,8 @@ public class FramePadrao {
             instituicao.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    if(e.getClickCount()==2){
-                        Integer idSelecionado = caixaSelecaoInstituicoes();
+                    if(e.getClickCount()==1){
+                        Integer idSelecionado = caixaSelecao(1);
                         if (idSelecionado !=null){
                             instituicao.setText(String.valueOf(idSelecionado));
                         }
@@ -180,7 +184,7 @@ public class FramePadrao {
             JTextField login = new JTextField(10);
             cadastrarAluno.add(login);
             cadastrarAluno.add(new JLabel("Senha"));
-            JTextField senha = new JTextField(10);
+            JTextField senha = new JPasswordField(10);
             cadastrarAluno.add(senha);
             cadastrarAluno.add(new JLabel("RA"));
             JTextField ra = new JTextField(10);
@@ -226,7 +230,7 @@ public class FramePadrao {
     //transforma as checkbox selecionadas em lista para ser instanciado posteriormente como um array de objetos para gravar o professor;
     //EU NÃO AGUEEEEEEEENTO MAAAAAAAAAAAAAAAAAAAAAAAAIIIIS
     public List<String> diasDisponiveis(JCheckBox segunda, JCheckBox terca, JCheckBox quarta, JCheckBox quinta, JCheckBox sexta){
-        List<String> diasSemana= new ArrayList<String>();
+        List<String> diasSemana= new ArrayList<>();
         if (segunda.isSelected()){
             diasSemana.add("1");
         }
@@ -245,19 +249,33 @@ public class FramePadrao {
         return diasSemana;
     }
 
-    //caixa de seleção de instituições
-    Integer caixaSelecaoInstituicoes (){
-        JDialog caixaSeleca = new JDialog((Frame) null, "Instiuições Cadastradas", true);
+    /*Função da caixa de seleção de cadastros
+    Feito dessa forma para não ter que criar uma função para cada uma das telas;
+    Como a gente só precisa do nome e do ID na maioria das vezes, a interface genérica é implementada
+    e o valor da lista herda essa interface, ganhando acesso aos métodos que precisamos, independente da
+    classe que está sendo retornada =D
+    * */
+    public Integer caixaSelecao(int valorLista){
+        JDialog caixaSeleca= new JDialog((Frame) null, "Cadastros", true);
         caixaSeleca.setLocation(600,300);
         caixaSeleca.setSize(300, 400);
-        List<CadInstituicoesSaude> instituicoesSaudes = controller.retornaTodasInstituicoes();
+        List<? extends getIDGenerico> listaDeCadastros = new ArrayList<>();
+        if (valorLista ==1){
+            listaDeCadastros = controller.retornaTodasInstituicoes();
+        }
+        if(valorLista ==2){
+            listaDeCadastros = controller.retornaTodasAreas();
+        }
+        if (valorLista ==3){
+            listaDeCadastros = controller.retornaTodosProfessores();
+        }
 
         String[] coluna = {"ID", "Nome"};
-        String [][] dados = new String[instituicoesSaudes.size()][2];
+        String [][] dados = new String[listaDeCadastros.size()][2];
 
-        for(int i=0; i<instituicoesSaudes.size(); i++){
-            dados[i][0] = String.valueOf(instituicoesSaudes.get(i).getId());
-            dados[i][1] = String.valueOf(instituicoesSaudes.get(i).getNome());
+        for(int i=0; i<listaDeCadastros.size(); i++){
+            dados[i][0] = String.valueOf(listaDeCadastros.get(i).getId());
+            dados[i][1] = String.valueOf(listaDeCadastros.get(i).getNome());
         }
         JTable tabela = new JTable(dados, coluna);
         JScrollPane painel = new JScrollPane(tabela);
@@ -277,5 +295,4 @@ public class FramePadrao {
         return idInstClicada[0];
     }
 
-    //caixa de seleção de áreas de atuação;
 }

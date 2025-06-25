@@ -14,6 +14,7 @@ public class Controller {
     CadProfessoresService professoresService;
     CadAtividadesServices atividadesServices;
     CadAlunosService alunosService;
+    SuperCadastrosService pessoa = new SuperCadastrosService();
 
     public Controller(){
         CadInstituicoesSaudeInterface instituicaoSauderepo = new CadInstituicoesSaudeRepImpInterface();
@@ -35,12 +36,25 @@ public class Controller {
     public void cadastrarAreaAtuacao(String  nome){
         areaAtuacaoMedicaService.criarAreaAtuacao(new AreaAtuacaoMedica(nome));
     }
+    public void excluirAreaA(Long id){
+        areaAtuacaoMedicaService.deleteAreaAtuacao(id);
+    }
+    public List<AreaAtuacaoMedica> retornaTodasAreas(){
+        return areaAtuacaoMedicaService.retornaTodasAreasAtuacao();
+    }
+
     public void cadastrarInstituicao (String nome){
         instuicoesSaudeService.criarInstituicao(new CadInstituicoesSaude(nome));
     }
-
+    public void excluirInstituicao(Long id){
+        instuicoesSaudeService.deleteInstituicao(id);
+    }
     public List<CadInstituicoesSaude> retornaTodasInstituicoes() {
         return instuicoesSaudeService.retornaTodasInstituicoes();
+    }
+
+    public void deletarProfessorAluno(Long id){
+        pessoa.deletePessoa(id);
     }
 
     public void cadastrarProfessor(String nome,String email, String telefoneContato, String login, String senha, Integer instituicao, List<String> diasDisp){
@@ -50,7 +64,14 @@ public class Controller {
         }
         professoresService.criarProfessor(new CadProfessores(nome,telefoneContato, email, login, senha, instituicao,diasDisponiveis));
     }
+    public List<CadProfessores> retornaTodosProfessores(){
+        return professoresService.retornaTodosProfessores();
+    }
+
     public void cadastrarAluno(String nome, String email, String telefoneContato, String login, String senha, Integer ra, Integer periodo){
         alunosService.criarAluno(new CadAlunos(nome, email,telefoneContato, login, senha, ra, periodo));
+    }
+    public List<CadAlunos> retornaTodosAlunos(){
+        return alunosService.retornaTodosOsAlunos();
     }
 }
