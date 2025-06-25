@@ -11,4 +11,9 @@ public class SuperCadastrosImplementation implements SuperCadastrosInterface {
     public List<SuperCadastros> retornaTodasPessoas() {
         return generics.selectBanco("from SuperCadastros", SuperCadastros.class);
     }
+
+    @Override
+    public void excluirPessoa(Long id) {
+        generics.deleteBanco(id, SuperCadastros.class);
+    }
 }

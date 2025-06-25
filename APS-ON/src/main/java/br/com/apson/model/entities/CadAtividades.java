@@ -49,6 +49,11 @@ public class CadAtividades implements getIDGenerico, Serializable {
     public CadAtividades() {
     }
 
+    @Override
+    public String getNome() {
+        return "";
+    }
+
     public CadAtividades(int tipoAtividade, int areaAtuacaoMedica, int hospitalPrestacao, int professor, int quantidadeVagas, LocalDate dataInicioAtividades, LocalDate dataFimAtividades, List<CadAtividadesHorariosDisponiveis> horariosDisponiveis, String periodosPermitidos, List<CadAtividadesGrupos> qtdGruposAlunos) {
         this.tipoAtividade = tipoAtividade;
         this.areaAtuacaoMedica = areaAtuacaoMedica;

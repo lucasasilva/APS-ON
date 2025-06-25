@@ -30,4 +30,7 @@ public class CadInstuicoesSaudeService {
     public CadInstituicoesSaude retornaInstuicaoByID(int id){
         return cadInstituicoesSaude.retornaInstuicaoByID(id);
     }
+    public void deleteInstituicao(Long id){
+        cadInstituicoesSaude.deletaInstituicao(id);
+    }
 }

@@ -3,6 +3,7 @@ package br.com.apson.model.entities;
 import jakarta.persistence.*;
 
 @Entity
+@Deprecated
 @Table (name = "cad_ativ_periodos")
 public class CadAtividadesPeriodos {
     @Id

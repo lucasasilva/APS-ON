@@ -10,4 +10,5 @@ public interface CadInstituicoesSaudeInterface {
 
     List<CadInstituicoesSaude> retornarTodasInstituicoesCadastradas();
     CadInstituicoesSaude retornaInstuicaoByID(int id);
+    void deletaInstituicao(Long id);
 }

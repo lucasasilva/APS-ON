@@ -35,5 +35,7 @@ public class AreaAtuacaoMedicaService {
         return service.retornaTodasAreasCadastradas();
     }
 
-
+    public void deleteAreaAtuacao(Long id){
+        service.deletaAreaAtuacao(id);
+    }
 }

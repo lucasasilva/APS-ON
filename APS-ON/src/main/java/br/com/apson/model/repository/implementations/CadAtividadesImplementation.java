@@ -26,4 +26,9 @@ public class CadAtividadesImplementation implements CadAtividadesInterface {
     public List<CadAtividades> retornaTodasAsAtividade() {
         return generics.selectBanco("from CadAtividades", CadAtividades.class);
     }
+
+    @Override
+    public void deletaAtividade(Long id) {
+        generics.deleteBanco(id, CadAtividades.class);
+    }
 }

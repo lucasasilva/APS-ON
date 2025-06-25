@@ -9,4 +9,8 @@ public interface getIDGenerico {
     acesso ao méto do "getId"
     * */
     long getId();
+
+    //Boa prática manda que isso aqui fosse uma interface separada, para que coisas que não tenham "nome" como parâmetro
+    //ainda possam implementar o outro méto do, mas vai assim mesmo
+    String getNome();
 }

@@ -5,5 +5,6 @@ import br.com.apson.model.entities.SuperCadastros;
 import java.util.List;
 
 public interface SuperCadastrosInterface {
-    public List<SuperCadastros> retornaTodasPessoas();
+    List<SuperCadastros> retornaTodasPessoas();
+    void excluirPessoa(Long id);
 }

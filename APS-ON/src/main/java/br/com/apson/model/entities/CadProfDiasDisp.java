@@ -11,7 +11,7 @@ public class CadProfDiasDisp {
     @Column (name = "dia_semana")
     private int diasDisponiveis;
     @ManyToOne
-    @JoinColumn(name = "id_professor")
+    @JoinColumn(name = "cod_professor")
     private CadProfessores idProfessor;
 
     public int getId() {

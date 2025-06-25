@@ -26,4 +26,9 @@ public class CadInstituicoesSaudeRepImpInterface implements CadInstituicoesSaude
     public CadInstituicoesSaude retornaInstuicaoByID(int id) {
         return generics.selectBancoByID("from CadInstituicoesSaude", CadInstituicoesSaude.class, id);
     }
+
+    @Override
+    public void deletaInstituicao(Long id) {
+        generics.deleteBanco(id, CadInstituicoesSaude.class);
+    }
 }

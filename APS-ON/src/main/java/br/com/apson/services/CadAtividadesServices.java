@@ -34,4 +34,7 @@ public class CadAtividadesServices {
     public List<CadAtividades> retornaTodasAtividades(){
         return cadAtividadesInterface.retornaTodasAsAtividade();
     }
+    public  void deleteAtividade(Long id){
+        cadAtividadesInterface.deletaAtividade(id);
+    }
 }

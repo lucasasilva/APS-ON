@@ -8,6 +8,7 @@ import java.util.List;
 
 public class SuperCadastrosService {
     SuperCadastrosInterface pessoa = new SuperCadastrosImplementation();
+
     List<SuperCadastros> listPessoas = pessoa.retornaTodasPessoas();
     public String validaLogin (String login, String senha){
         String tipoLogin=null;
@@ -17,5 +18,8 @@ public class SuperCadastrosService {
             }
         }
         return tipoLogin;
+    }
+    public void deletePessoa(Long id){
+        pessoa.excluirPessoa(id);
     }
 }

@@ -1,17 +1,18 @@
 package br.com.apson.model.entities;
 
+import br.com.apson.util.getIDGenerico;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "cad_instituicoes_saude")
-public class CadInstituicoesSaude  {
+public class CadInstituicoesSaude implements getIDGenerico {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "nome")
     private String nome;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

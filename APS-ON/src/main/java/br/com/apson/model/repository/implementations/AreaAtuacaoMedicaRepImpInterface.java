@@ -25,4 +25,9 @@ public class AreaAtuacaoMedicaRepImpInterface implements AreaAtuacaoMedicaRepInt
     public AreaAtuacaoMedica retornaAreaAtuacaoByID(int id) {
         return generics.selectBancoByID("from AreaAtuacaoMedica", AreaAtuacaoMedica.class, id);
     }
+
+    @Override
+    public void deletaAreaAtuacao(Long id) {
+        generics.deleteBanco(id, AreaAtuacaoMedica.class);
+    }
 }

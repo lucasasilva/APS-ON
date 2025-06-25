@@ -10,7 +10,7 @@ import java.util.List;
 public class CadAtividadesGrupos implements getIDGenerico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @ManyToOne
     @JoinColumn(name = "cod_atividade")
     private CadAtividades codAtividade;
@@ -54,6 +54,11 @@ public class CadAtividadesGrupos implements getIDGenerico {
     }
 
     public CadAtividadesGrupos() {
+    }
+
+    @Override
+    public String getNome() {
+        return "";
     }
 
     public CadAtividadesGrupos(CadAtividades codAtividade, int codGrupo, List<CadAtividadesGruposAlunos> alunosGrupo) {

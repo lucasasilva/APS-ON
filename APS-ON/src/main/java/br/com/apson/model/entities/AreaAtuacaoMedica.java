@@ -1,10 +1,11 @@
 package br.com.apson.model.entities;
 
+import br.com.apson.util.getIDGenerico;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "cad_area_atuacao_medica")
-public class AreaAtuacaoMedica {
+public class AreaAtuacaoMedica implements getIDGenerico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

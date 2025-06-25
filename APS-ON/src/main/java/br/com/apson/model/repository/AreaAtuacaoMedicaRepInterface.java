@@ -10,4 +10,5 @@ public interface AreaAtuacaoMedicaRepInterface {
 
     List<AreaAtuacaoMedica> retornaTodasAreasCadastradas();
     AreaAtuacaoMedica retornaAreaAtuacaoByID(int id);
+    void deletaAreaAtuacao(Long id);
 }

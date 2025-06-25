@@ -9,4 +9,5 @@ public interface CadAtividadesInterface {
     void alterarAtividade(CadAtividades obj);
     List<CadAtividades> retornaTodasAsAtividade();
     CadAtividades retornaAtividadeById(int id);
+    void deletaAtividade(Long id);
 }
