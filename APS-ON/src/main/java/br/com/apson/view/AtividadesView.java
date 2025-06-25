@@ -110,16 +110,21 @@ public class AtividadesView {
 
         JButton salvar = new JButton("Salvar");
         salvar.addActionListener(e->{
-
-            controller.criarAtividade(String.valueOf(tipoAtividade.getSelectedItem()),
-                                      Integer.valueOf(area.getText()),
-                                     Integer.valueOf(instituicao.getText()),
-                                     Integer.valueOf(professor.getText()),
-                                    Integer.valueOf(qtdVagas.getText()),
-                                    Integer.valueOf(qtdGrupos.getText()),
-                                     dataInidicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
-                                    dataFim.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
-                                    periodosDisponiveis(primeiro, segundo, terceiro,quarto,quinto,sexto,setimo,oitavo));
+            try {
+                controller.criarAtividade(String.valueOf(tipoAtividade.getSelectedItem()),
+                        Integer.valueOf(area.getText()),
+                        Integer.valueOf(instituicao.getText()),
+                        Integer.valueOf(professor.getText()),
+                        Integer.valueOf(qtdVagas.getText()),
+                        Integer.valueOf(qtdGrupos.getText()),
+                        dataInidicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                        dataFim.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                        periodosDisponiveis(primeiro, segundo, terceiro, quarto, quinto, sexto, setimo, oitavo));
+                        JOptionPane.showMessageDialog(null, "Atividade salva com suce");
+                        atividades.dispose();
+            }catch(RuntimeException erro){
+                JOptionPane.showMessageDialog(atividades, "erro ao salvaor", erro.getMessage(), JOptionPane.ERROR_MESSAGE);
+            }
 
         });
         atividades.add(salvar);
