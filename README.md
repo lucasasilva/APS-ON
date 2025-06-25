@@ -11,7 +11,6 @@ Funcionalidades presentes na versão atual
 3 - Cadastro de Instituições de Saúde;
 4 - Cadastro de Atividades Praticas Supervisionadas;
 5 - Cadastro de Estágio Supervisionado;
-6 - Relatórios de cadastros;
 
 Público-Alvo: Professores, Alunos das áreas da saúde do grupo Descomplica Uniamérica
 
@@ -24,7 +23,6 @@ Cadastro de Professores.
 Cadastro de Instituições de Saúde.
 Cadastro de Atividades Práticas Supervisionadas.
 Cadastro de Estágio Supervisionado.
-Relatórios de cadastros.
 
 Requisitos Não Funcionais:
 
@@ -49,6 +47,8 @@ Uso de encapsulamento e modificadores de acesso.
 Implementação de herança e polimorfismo.
 Uso de interfaces e composição.
 Aplicação de boas práticas de desenvolvimento.
+Aplicação de utilização de Services, Repository e Entities;
+Aplicação do MVC para boa visualização do projeto;
 
 Evolução do Projeto:
 
@@ -57,5 +57,4 @@ Evolução do Projeto:
 Descrição do Fluxo: Como o usuário interage com o sistema via console.
 Exemplos de Uso: Passo a passo com exemplos de entrada e saída do console.
 
-Melhorias: Implementação de validações, logs e segurança.
 
